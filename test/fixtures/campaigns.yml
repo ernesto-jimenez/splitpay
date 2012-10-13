@@ -15,7 +15,7 @@ second_campaign_from_ernesto:
   created_at: 2012-10-13 16:50:44
   updated_at: 2012-10-13 16:50:44
   amount: 10000000
-  currency: EUR
+  currency: USD
   user: ernesto
 
 first_campaign_from_belen:
@@ -24,7 +24,7 @@ first_campaign_from_belen:
   created_at: 2012-10-13 16:50:44
   updated_at: 2012-10-13 16:50:44
   amount: 10
-  currency: EUR
+  currency: GBP
   user: belen
 
 

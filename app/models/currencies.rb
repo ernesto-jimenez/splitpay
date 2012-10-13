@@ -2,12 +2,13 @@
 
 class Currencies
   ALL = [
-    {code: 'EUR', long: 'Euro', short: 'EUR €', tiny: '€', format: "%n%u"},
+    {code: 'EUR', long: 'Euro', short: 'EUR €', tiny: '€', format: "%n %u"},
     {code: 'GBP', long: 'Pound Sterling', short: 'GBP £', tiny: '£', format: "%u%n"},
     {code: 'USD', long: 'U.S. Dollars', short: 'USD $', tiny: '$', format: "%u%n"},
   ]
   CODES = ALL.collect { |currency| currency[:code] }
   SELECT_OPTIONS = ALL.collect { |currency| [currency[:short], currency[:code]] }
+  DETAIL = Hash[ALL.collect { |c| [c[:code], {format: c[:format], unit: c[:tiny]}] }]
   {
     :AUD => {long: 'Australian Dollar', short: 'AUD $', tiny: 'A$'},
     :BRL => {long: 'Brazilian Real', short: 'BRL $', tiny: 'R$'},
@@ -41,5 +42,10 @@ class Currencies
 
   def self.select_options
     SELECT_OPTIONS
+  end
+
+  def self.detail(currency)
+    Rails.logger.debug DETAIL[currency]
+    DETAIL[currency]
   end
 end
