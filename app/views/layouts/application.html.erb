@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>Splitpayat</title>
-  
+
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
-  
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -17,7 +17,17 @@
       <nav class="main-menu">
         <ul>
           <li><a href="#"><i class="icon-bullhorn"></i> New campaign</a></li>
-          <li><a href="#"><i class="icon-user"></i> Login</a></li>
+          <li>
+          <% if logged_in? -%>
+            <%= link_to logout_path do %>
+              <i class="icon-signout"></i>Logout
+            <% end -%>
+          <% else -%>
+            <%= link_to login_path do %>
+              <i class="icon-user"></i>Login
+            <% end -%>
+          <% end -%>
+          </li>
         </ul>
       </nav>
     </div>
@@ -29,7 +39,7 @@
   </div></div><!-- main wrapper -->
   <footer class="main-footer">
     <div class="wrapper">
-      <p class="left">Coded with love for <strong>Rails Rumble 2012</strong> by 
+      <p class="left">Coded with love for <strong>Rails Rumble 2012</strong> by
         <a href="http://www.twitter.com/ernesto_jimenez">@ernesto_jimenez</a> and <a href="http://www.twitter.com/ladybenko">@ladybenko</a>
       </p>
     </div>

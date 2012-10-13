@@ -30,4 +30,8 @@ class Campaign < ActiveRecord::Base
   def paid
     payments.completed.select('email, status, user_id')
   end
+
+  def from?(user)
+    self.user == user
+  end
 end
