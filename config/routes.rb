@@ -14,11 +14,14 @@ Splitpayat::Application.routes.draw do
   match '/payment/ipn' => 'payments#ipn',
     as: :ipn_notification
 
-  match '/campaign/create' => 'campaigns#create', :as => :create_campaign
-  match '/campaign/:id' => 'campaigns#show', :as => :campaign
+  resources :campaigns do
+    resources :payments
+  end
+  # match '/campaign/create' => 'campaigns#create', :as => :create_campaign
+  # match '/campaign/:id' => 'campaigns#show', :as => :campaign
 
   match '/auth/:provider/callback' => 'sessions#create'
-  match '/logout' => 'sessions#destroy'
+  match '/logout' => 'sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

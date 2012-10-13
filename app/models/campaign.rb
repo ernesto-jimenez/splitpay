@@ -7,9 +7,25 @@ class Campaign < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :amount
   validates_presence_of :currency
+  validates_presence_of :random_id
   validates_inclusion_of :currency, :in => Currencies.keys
 
   delegate :name, :avatar, :email, :to => :user, :prefix => true
+
+  before_create :generate_random_id
+  def generate_random_id
+    self.random_id = SecureRandom.urlsafe_base64(20)
+  end
+
+  def to_param
+    if random_id
+      random_id
+    else
+      generate_random_id
+      save
+      random_id
+    end
+  end
 
   def paid
     payments.completed.select('email, status, user_id')
