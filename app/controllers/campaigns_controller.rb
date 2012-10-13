@@ -8,8 +8,9 @@ class CampaignsController < ApplicationController
   skip_before_filter :require_login # TODO: remove this
   def create
   end
-  
+
   skip_before_filter :require_login # TODO: remove this
-  def index    
+  def index
+    @campaigns = Campaign.all
   end
 end

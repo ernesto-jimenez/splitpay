@@ -2,7 +2,12 @@
   <h1>Your campaings</h1>
 </header>
 
-<section class="open">  
+<section class="open">
+<ul>
+  <% for campaign in @campaigns %>
+    <li><%= link_to campaign.title, campaign %></li>
+  <% end %>
+</ul>
 </section>
 
 <section class="closed">
