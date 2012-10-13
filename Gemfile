@@ -32,6 +32,12 @@ gem 'jquery-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 
+group :development, :test do
+  gem 'autotest-rails'
+  gem 'autotest-growl'
+  gem 'autotest-fsevent'
+end
+
 # Deploy with Capistrano
 gem 'capistrano'
 
