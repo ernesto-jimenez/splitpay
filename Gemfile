@@ -8,6 +8,7 @@ gem 'paypal_adaptive'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'omniauth-paypal', :git => 'https://github.com/surferdwa/omniauth-paypal.git'
+gem 'gravatar_image_tag'
 
 # Gems used only for assets and not required
 # in production environments by default.

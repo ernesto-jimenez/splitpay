@@ -2,6 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
 
+@import compass/css3/border-radius
+@import compass/utilities/general/clearfix
+
+@mixin big-gravatar
+  height: 50px
+  width: 50px
+  display: inline-block
+  
+@mixin small-gravatar
+  height: 30px
+  width: 30px
+  display: inline-block
+
+@mixin respond-to($media)
+  @if $media == retina // high resolution smartphones (iPhone 4S)
+    @media only screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2)
+      @content
+  @else if $media == phone // smartphones
+    @media only screen and (max-width: 480px)
+      @content
+  @else if $media == desktop // desktop and tablets
+    @media only screen and (min-width: 481px)
+      @content
+
 section.main header.campaign
   text-align: center
   h1
@@ -12,3 +36,59 @@ section.main header.campaign
     margin-top: 0.25em
     strong
       color: #000
+      
+section.description
+  div.organiser
+    margin-top: 20px
+    font-size: 14pt
+    p
+      +clearfix
+      line-height: 50px
+    img
+      +big-gravatar
+      float: left
+      margin-right: 0.5em            
+    span.name
+      font-weight: bold
+      color: #000
+      
+  div.bubble
+    +border-radius(10px)
+    background: image-url('background.png')
+    padding: 15px
+    margin-top: 30px
+    position: relative  
+    &:after
+      content: ""
+      position: absolute
+      bottom: -10px
+      left: 15px
+      border-top: 10px solid #aaa
+      border-top-image: image-url('light_noise.png')
+      border-left: 10px solid transparent
+      border-right: 10px solid transparent 
+  
+section.pay
+  border-top: 1px solid #ddd
+  border-bottom: 1px solid #ddd
+  text-align: center
+  margin: 30px 0px
+  p.paypal-button
+    margin: 0em
+  
+section.payers
+  ul
+    +clearfix
+    li
+      +clearfix
+      +respond-to(desktop)
+        float: left
+        width: 33.333%
+      line-height: 30px
+      margin-top: 0.5em
+      margin-bottom: 0.5em
+      font-size: 14pt
+    img
+      +small-gravatar
+      margin-right: 0.5em      
+      float: left
