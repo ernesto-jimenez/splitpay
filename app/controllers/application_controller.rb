@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  helper_method :current_user, :logged_in?
+
   def require_login
     redirect_to "/auth/paypal" unless logged_in?
   end

@@ -35,4 +35,8 @@ class Campaign < ActiveRecord::Base
   def closed?
     true
   end
+  
+  def from?(user)
+    self.user == user
+  end
 end
