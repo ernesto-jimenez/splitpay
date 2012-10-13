@@ -22,8 +22,13 @@ class PaymentsController < ApplicationController
   end
 
   def completed
-    debugger
-    render :text => 'payment completed'
+    payment = Payment.find_by_tracking_id(params[:track])
+    if payment
+      payment.update_status
+      redirect_to "/campaign/1"
+    else
+      redirect_to root_path
+    end
   end
 
   def canceled
