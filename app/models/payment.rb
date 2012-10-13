@@ -20,7 +20,7 @@ class Payment < ActiveRecord::Base
   attr_accessor :payment_url, :payment_error
 
   def tracking_id
-    self[:tracking_id] ||= "#{Time.now.to_f}-#{rand(10**20)}"
+    self[:tracking_id] ||= "#{Time.now.to_i}#{SecureRandom.urlsafe_base64(20)}"
   end
 
   before_save :set_user
@@ -101,5 +101,9 @@ class Payment < ActiveRecord::Base
 
   def details
     JSON.parse(raw_details)
+  end
+
+  def to_param
+    tracking_id
   end
 end

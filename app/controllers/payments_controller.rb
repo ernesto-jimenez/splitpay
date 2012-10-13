@@ -1,38 +1,39 @@
 class PaymentsController < ApplicationController
-  def create
-    payment = Campaign.first.payments.build
+  def new
+    campaign = Campaign.find_by_random_id(params[:campaign_id])
+    payment = campaign.payments.build
 
     can_pay = payment.pay({
-      returnUrl: payment_completed_url(track: payment.tracking_id),
-      cancelUrl: payment_canceled_url(track: payment.tracking_id),
-      ipnNotificationUrl: ipn_notification_url,
+      returnUrl: completed_campaign_payment_url(campaign, payment),
+      cancelUrl: canceled_campaign_payment_url(campaign, payment),
+      ipnNotificationUrl: ipn_campaign_payment_url(campaign, payment),
       ClientDetails: {
         applicationId: "splitpay.at",
         ipAddress: request.ip
       }
     })
 
-    debugger
     if can_pay
       redirect_to payment.payment_url
     else
       puts payment.payment_error
-      redirect_to payment_canceled_url
+      redirect_to campaign
     end
   end
 
   def completed
-    payment = Payment.find_by_tracking_id(params[:track])
+    campaign = Campaign.find_by_random_id(params[:campaign_id])
+    payment = Payment.find_by_tracking_id(params[:id])
     if payment
       payment.update_status
-      redirect_to "/campaign/1"
+      redirect_to campaign
     else
       redirect_to root_path
     end
   end
 
   def canceled
-    payment = Payment.find_by_tracking_id(params[:track])
+    payment = Payment.find_by_tracking_id(params[:id])
     payment.update_status
 
     render :text => 'payment cancelled'

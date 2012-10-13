@@ -17,14 +17,14 @@
 <section class="pay subsection">
   <h1>Pay <%= @campaign.currency + @campaign.amount.to_s %> to <%= @campaign.user_name %></h1>
   <p class="paypal-button">
-    <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/x-click-but6.gif"), "/payment" %>
+  <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/x-click-but6.gif"), new_campaign_payment_path(@campaign), 'data-no-turbolink' => true %>
   </p>
   <p class="paid-in-cash">Already <a href="#">paid in cash?</a></p>
 </section>
 
 <section class="payers subsection">
   <h1>People who have contributed</h2>
-    
+
   <% if @payments_completed.size > 0 %>
   <ul>
     <% @payments_completed.each do |payment| %>

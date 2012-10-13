@@ -7,15 +7,14 @@ Splitpayat::Application.routes.draw do
 
   match '/payment', to: 'payments#create'
 
-  match '/payment/completed' => 'payments#completed',
-    as: :payment_completed
-  match '/payment/canceled' => 'payments#canceled',
-    as: :payment_canceled
-  match '/payment/ipn' => 'payments#ipn',
-    as: :ipn_notification
-
   resources :campaigns do
-    resources :payments
+    resources :payments do
+      member do
+        get 'completed'
+        get 'canceled'
+        get 'ipn'
+      end
+    end
   end
   # match '/campaign/create' => 'campaigns#create', :as => :create_campaign
   # match '/campaign/:id' => 'campaigns#show', :as => :campaign
