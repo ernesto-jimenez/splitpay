@@ -18,6 +18,7 @@
 @import compass/css3/box-shadow
 @import compass/css3/box-sizing
 @import compass/css3/text-shadow
+@import compass/utilities/general/clearfix
 
 @import url(http://fonts.googleapis.com/css?family=Muli)
 
@@ -93,18 +94,23 @@ $contrast-color: #F32A54
 body
   font-family: $std-font
   font-size: $std-font-size
-  background: #fff
+  background: #ddd
   color: #333
+  height: 100%
 
 p, li, h1, h2, h3
   line-height: 1.25em
 
 a
   color: $contrast-color
+  
+strong
+  color: #000
+  font-weight: bold
 
 header.main-header
   +background(linear-gradient(bottom, #000, #444))
-  +box-shadow(0px 2px 5px rgba(0, 0, 0, 0.5))
+  z-index: 10
   color: #fff
   border-top: 5px solid $contrast-color
   div.wrapper    
@@ -120,6 +126,12 @@ header.main-header
 
 div.main-wrapper
   +std-wrapper
+
+div.outer-wrapper
+  +clearfix
+  +box-shadow(inset 0px 2px 5px rgba(0, 0, 0, 0.5))
+  padding-bottom: 50px
+  background: #fff
 
 section.main
   h1
@@ -137,12 +149,20 @@ section.subsection
     font-size: 16pt
 
 footer.main-footer
-  margin-top: 50px
-  // background: #ccc
+  background: #ddd
+  border-top: 2px solid #aaa
   div.wrapper
     +std-wrapper
+    +clearfix
     padding-top: 15px
     padding-bottom: 15px
+  p.left
+    width: 44%
+    float: left
+  p.right
+    width: 44%
+    float: right
+    text-align: right
     
 form.std-form
   font-size: 20pt
