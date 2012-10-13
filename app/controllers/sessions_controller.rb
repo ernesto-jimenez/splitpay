@@ -1,10 +1,14 @@
 class SessionsController < ApplicationController
+  skip_before_filter :require_login
   def create
-    logger.debug(auth_hash)
-    info = auth_hash['info']
-    name = info['name']
-    email = info['email']
-    render :text => "Logged in as #{name} &lt;#{email}&gt;"
+    user = User.login(auth_hash['info'])
+    self.current_user = user
+    redirect_to root_path
+  end
+
+  def destroy
+    self.current_user = false
+    redirect_to root_path
   end
 
   protected

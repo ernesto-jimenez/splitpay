@@ -1,7 +1,7 @@
 Splitpayat::Application.routes.draw do
   # get "pages/home"
   # get "pages/about"
-  
+
   root :to => 'pages#home'
   match '/about', to: 'pages#about'
 
@@ -15,6 +15,7 @@ Splitpayat::Application.routes.draw do
     as: :ipn_notification
 
   match '/auth/:provider/callback' => 'sessions#create'
+  match '/logout' => 'sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
