@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  campaign_id: 1
+  status: MyString
+  email: MyString
+  name: MyString
+  raw_details: MyText
+
+two:
+  user_id: 1
+  campaign_id: 1
+  status: MyString
+  email: MyString
+  name: MyString
+  raw_details: MyText
