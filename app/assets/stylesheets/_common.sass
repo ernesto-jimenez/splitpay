@@ -13,6 +13,8 @@ $std-font-size: 12pt
 $fancy-font: Muli
 
 $contrast-color: #F32A54
+$error-fg-color: #a03
+$error-bg-color: #fee
 
 @mixin respond-to($media)
   @if $media == retina // high resolution smartphones (iPhone 4S)
@@ -66,7 +68,10 @@ $contrast-color: #F32A54
   font-size: 20pt
   width: 100%
   +box-sizing(border-box)
-
+  &.error
+    border: 2px solid $error-fg-color
+    background: $error-bg-color
+      
 @mixin std-textarea
   background: #fff
   border: 1px solid #ddd

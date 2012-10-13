@@ -6,17 +6,26 @@
   <p><label>
     Title:<br>
     <%= form.text_field :title, placeholder: 'Gift for Darth Vader' %>
+    <% unless @campaign.errors[:title].empty? %>
+      <br><span class="error"><%= @campaign.errors[:title].map{|x| x.capitalize}.join('; ') %></span>
+    <% end %>
   </label></p>
 
   <p><label>
     Description:<br>
     <%= form.text_area :message, rows: 6, placeholder: "Hey guys! Let's get Darth Vader something cool for his birthday :)" %>
+    <% unless @campaign.errors[:message].empty? %>
+      <br><span class="error"><%= @campaign.errors[:message].map{|x| x.capitalize}.join('; ') %></span>
+    <% end %>
   </label></p>
 
   <p>
   <label>How much per person?<br>
     <%= form.text_field :amount, pattern: '[0-9]*', min: 0, size: 5, placeholder: '10.00', class: 'amount' %>
     <%= select 'campaign', 'currency', Currencies.select_options %>
+    <% unless @campaign.errors[:amount].empty? %>
+      <br><span class="error"><%= @campaign.errors[:amount].map{|x| x.capitalize}.join('; ') %></span>
+    <% end %>
   </p>
 
   <p class="submit"><%= form.submit 'Create campaign' %></p>

@@ -12,7 +12,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = current_user.campaigns.build(params[:campaign])
 
-    if @campaign.save!
+    if @campaign.save
       redirect_to @campaign
     else
       render :action => :new
