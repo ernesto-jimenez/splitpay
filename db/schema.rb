@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(:version => 20121013164951) do
   create_table "campaigns", :force => true do |t|
     t.string   "title"
     t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.integer  "amount"
     t.string   "currency"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "payments", :force => true do |t|

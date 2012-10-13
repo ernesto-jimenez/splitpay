@@ -1,9 +1,11 @@
 class CampaignsController < ApplicationController
   skip_before_filter :require_login
   def show
+    @campaign = Campaign.find(params[:id])
+    @payments_completed = @campaign.paid
   end
-  
+
   skip_before_filter :require_login # TODO: remove this
-  def create    
+  def create
   end
 end
