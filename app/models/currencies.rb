@@ -27,6 +27,6 @@ class Currencies
   }
 
   def self.keys
-    ALL.keys
+    ALL.keys.map(&:to_s)
   end
 end

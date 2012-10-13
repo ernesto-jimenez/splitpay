@@ -1,18 +1,24 @@
 require 'digest/md5'
 
 class User < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :email, :name
+  has_many :campaigns
+
   validates_presence_of :email
   validates_presence_of :name
+  validates_uniqueness_of :email
 
-  has_many :campaigns
+  before_validation :set_name, :on => :create
+  def set_name
+    self.name ||= email.split(/[+@]/).first
+  end
 
   def self.login(info = {})
     info.symbolize_keys!
     raise ArgumentError unless info[:email]
 
     user = User.find_or_initialize_by_email(info[:email])
-    user.name ||= info[:name] || info[:email].split(/[+@]/).first
+    user.name ||= info[:name]
     user.last_login_at = Time.now
     user.save
 

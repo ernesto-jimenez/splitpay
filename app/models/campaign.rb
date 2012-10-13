@@ -1,6 +1,7 @@
 class Campaign < ActiveRecord::Base
   attr_accessible :message, :title, :currency, :amount
   belongs_to :user
+  has_many :payments
 
   validates_presence_of :user
   validates_presence_of :title
