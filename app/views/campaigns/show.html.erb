@@ -24,12 +24,16 @@
 
 <section class="payers subsection">
   <h1>People who have contributed</h2>
-
+    
+  <% if @payments_completed.size > 0 %>
   <ul>
     <% @payments_completed.each do |payment| %>
       <li><%= gravatar_image_tag(payment.user_email, :alt => payment.user_name, :gravatar => { :size => 30, :default => 'mm' }) %><%= payment.user_name %></li>
     <% end %>
   </ul>
+  <% else %>
+  <p>No one yet :(</p>
+  <% end %>
 </section><!-- payers -->
 
 

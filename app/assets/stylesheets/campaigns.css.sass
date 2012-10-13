@@ -2,35 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
 
-@import compass/css3/border-radius
-@import compass/utilities/general/clearfix
-
-@mixin big-gravatar
-  height: 50px
-  width: 50px
-  display: inline-block
-  
-@mixin small-gravatar
-  height: 30px
-  width: 30px
-  display: inline-block
-
-@mixin respond-to($media)
-  @if $media == retina // high resolution smartphones (iPhone 4S)
-    @media only screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2)
-      @content
-  @else if $media == phone // smartphones
-    @media only screen and (max-width: 480px)
-      @content
-  @else if $media == desktop // desktop and tablets
-    @media only screen and (min-width: 481px)
-      @content
-
-section.main header.campaign
-  text-align: center
-  h1
-    margin-bottom: 0em
-    font-size: 32pt
+@import _common
 
 section.description
   div.organiser
@@ -91,3 +63,29 @@ section.payers
 form.campaign
   input.amount
     width: auto
+    
+@mixin campaign-list
+  +respond-to(desktop)
+    float: left
+    width: 48%
+  ul
+    margin-left: 1em
+  li
+    line-height: 1.25em
+    list-style-type: disc
+    padding: 0.5em 0em
+    &:hover
+      background: #efefef
+  p.actions
+    margin-top: 1em
+
+div.campaigns-list-wrapper    
+  +clearfix
+    
+section.open-campaigns
+  +campaign-list
+  
+section.closed-campaigns
+  +campaign-list
+  +respond-to(desktop)
+    float: right

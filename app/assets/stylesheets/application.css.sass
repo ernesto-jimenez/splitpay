@@ -12,85 +12,11 @@
  *= require_tree .
  */
 
-@import compass/reset
-@import compass/css3/border-radius
-@import compass/css3/images
-@import compass/css3/box-shadow
-@import compass/css3/box-sizing
-@import compass/css3/text-shadow
-@import compass/utilities/general/clearfix
-
-@import url(http://fonts.googleapis.com/css?family=Muli)
-@import _font-awesome
-
-$std-font: Arial, Helvetica, sans-serif
-$std-font-size: 12pt
-$fancy-font: Muli
-
-$contrast-color: #F32A54
-
-// ==========
-// = mixins =
-// ==========
-
-@mixin respond-to($media)
-  @if $media == retina // high resolution smartphones (iPhone 4S)
-    @media only screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2)
-      @content
-  @else if $media == phone // smartphones
-    @media only screen and (max-width: 480px)
-      @content
-  @else if $media == desktop // desktop and tablets
-    @media only screen and (min-width: 481px)
-      @content
-      
-@mixin std-button
-  +border-radius(5px)
-  font-size: 14pt
-  border: 0px none
-  display: inline-block
-  padding: 0.75em 1.25em
-  text-decoration: none
-  &:hover
-    cursor: pointer
-
-@mixin std-button-ok
-  +std-button
-  +background(linear-gradient(bottom, #58212b, #F32A54))
-  +text-shadow(1px 1px 2px rgba(0, 0, 0, 0.8))
-  +box-shadow(2px 2px 5px rgba(0, 0, 0, 0.5))
-  color: #fff
-  
-@mixin std-wrapper
-  +respond-to(desktop)
-    max-width: 700px - 2*15px
-  margin: 0px auto
-  padding-left: 15px
-  padding-right: 15px
-
-@mixin std-input
-  background: #fff
-  border: 1px solid #ddd
-  padding: 0.5em
-  font-size: 20pt
-  width: 100%
-  +box-sizing(border-box)
-  
-@mixin std-textarea
-  background: #fff
-  border: 1px solid #ddd
-  padding: 0.5em
-  font-size: 11pt
-  width: 100%
-  +box-sizing(border-box)
-  
-@mixin std-submit
-  +std-button-ok
-  +box-sizing(border-box)
-  
 // ==================
 // = general styles =
 // ==================
+@import compass/reset
+@import _common
 
 body
   font-family: $std-font
@@ -98,12 +24,18 @@ body
   background: #ddd
   color: #333
   height: 100%
+  
+i.icon-dimmed
+  opacity: 0.5
 
 p, li, h1, h2, h3
   line-height: 1.25em
 
 a
   color: $contrast-color
+  
+a.button-ok
+  +std-button-ok
   
 strong
   color: #000
@@ -133,6 +65,7 @@ nav.main-menu
   display: inline-block
   float: right
   margin-left: 25px
+  font-family: $fancy-font
   ul
     +clearfix
   li
@@ -167,6 +100,10 @@ section.main
     font-size: 22pt
     font-weight: bold
     color: #000
+  & > header h1
+    margin-bottom: 0.5em
+    text-align: center
+    font-size: 32pt
   h2, h3
     color: #000
   p, h1, h2, h3
