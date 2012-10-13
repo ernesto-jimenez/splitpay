@@ -16,6 +16,8 @@
 @import compass/css3/border-radius
 @import compass/css3/images
 @import compass/css3/box-shadow
+@import compass/css3/box-sizing
+@import compass/css3/text-shadow
 
 @import url(http://fonts.googleapis.com/css?family=Muli)
 
@@ -39,7 +41,24 @@ $contrast-color: #F32A54
   @else if $media == desktop // desktop and tablets
     @media only screen and (min-width: 481px)
       @content
+      
+@mixin std-button
+  +border-radius(5px)
+  font-size: 14pt
+  border: 0px none
+  display: inline-block
+  padding: 0.75em 1.25em
+  text-decoration: none
+  &:hover
+    cursor: pointer
 
+@mixin std-button-ok
+  +std-button
+  +background(linear-gradient(bottom, #58212b, #F32A54))
+  +text-shadow(1px 1px 2px rgba(0, 0, 0, 0.8))
+  +box-shadow(2px 2px 5px rgba(0, 0, 0, 0.5))
+  color: #fff
+  
 @mixin std-wrapper
   +respond-to(desktop)
     max-width: 700px - 2*15px
@@ -47,6 +66,26 @@ $contrast-color: #F32A54
   padding-left: 15px
   padding-right: 15px
 
+@mixin std-input
+  background: #fff
+  border: 1px solid #ddd
+  padding: 0.5em
+  font-size: 20pt
+  width: 100%
+  +box-sizing(border-box)
+  
+@mixin std-textarea
+  background: #fff
+  border: 1px solid #ddd
+  padding: 0.5em
+  font-size: 11pt
+  width: 100%
+  +box-sizing(border-box)
+  
+@mixin std-submit
+  +std-button-ok
+  +box-sizing(border-box)
+  
 // ==================
 // = general styles =
 // ==================
@@ -104,3 +143,25 @@ footer.main-footer
     +std-wrapper
     padding-top: 15px
     padding-bottom: 15px
+    
+form.std-form
+  font-size: 20pt
+  input[type=text]
+    +std-input
+  textarea
+    +std-textarea
+  label
+    font-weight: bold
+  select
+    font-size: 20pt
+    padding: 0.5em
+    width: auto
+  input[type=submit]
+    +std-submit
+  p.submit
+    +respond-to(desktop)
+      text-align: right
+    +respond-to(phone)
+      input[type=submit]
+        width: 100%
+    
