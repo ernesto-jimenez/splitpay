@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :require_login
+
   def create
     user = User.login(auth_hash['info'])
     self.current_user = user
