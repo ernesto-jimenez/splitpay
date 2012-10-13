@@ -1,5 +1,5 @@
 <header class="campaign">
-  <h1>Create your campaign</h1>
+  <h1>Start a campaign</h1>
 </header>
 
 <%= form_for @campaign, :html => {class: 'campaign std-form'} do |form|-%>
@@ -21,7 +21,7 @@
 
   <p>
   <label>How much per person?<br>
-    <%= form.text_field :amount, pattern: '[0-9]*', min: 0, size: 5, placeholder: '10.00', class: 'amount' %>
+    <%= form.text_field :amount, pattern: '[0-9]*', min: 0, size: 5, placeholder: '10.00', class: 'amount' %></label>
     <%= select 'campaign', 'currency', Currencies.select_options %>
     <% unless @campaign.errors[:amount].empty? %>
       <br><span class="error"><%= @campaign.errors[:amount].map{|x| x.capitalize}.join('; ') %></span>
