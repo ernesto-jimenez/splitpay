@@ -32,7 +32,12 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
+
+group :production do
+  gem 'mysql2' # If using mysql in development, this can be outside the production group.
+  gem 'therubyracer'
+end
 
 # To use debugger
 # gem 'debugger'
