@@ -10,10 +10,10 @@
 @import url(http://fonts.googleapis.com/css?family=Muli)
 
 $std-font: Arial, Helvetica, sans-serif
-$std-font-size: 11pt
+$std-font-size: 12pt
 $fancy-font: Muli
 
-$contrast-color: #f80
+$contrast-color: #F32A54
 
 // ==========
 // = mixins =
@@ -32,7 +32,7 @@ $contrast-color: #f80
 
 @mixin std-wrapper
   +respond-to(desktop)
-    width: 960px - 2*15px
+    width: 700px - 2*15px
   margin: 0px auto
   padding-left: 15px
   padding-right: 15px
@@ -45,9 +45,13 @@ body
   font-family: $std-font
   font-size: $std-font-size
   background: #fff
+  color: #333
   
 p, li, h1, h2, h3
   line-height: 1.25em
+  
+a
+  color: $contrast-color
   
 header.main-header
   +background(linear-gradient(bottom, #000, #444))
@@ -72,7 +76,10 @@ section.main
   h1
     font-family: $std-font
     font-size: 22pt
-    font-weight: bold    
+    font-weight: bold
+    color: #000
+  h2, h3
+    color: #000
   p, h1, h2, h3
     margin: 0.5em 0em
   
