@@ -13,8 +13,9 @@ Splitpayat::Application.routes.draw do
     as: :payment_canceled
   match '/payment/ipn' => 'payments#ipn',
     as: :ipn_notification
-    
-  match '/campaign/:id' => 'campaigns#show', :as => :campaign
+  
+  match '/campaign/create' => 'campaigns#create', :as => :create_campaign  
+  match '/campaign/:id' => 'campaigns#show', :as => :campaign  
 
   match '/auth/:provider/callback' => 'sessions#create'
   match '/logout' => 'sessions#destroy'
