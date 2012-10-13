@@ -12,7 +12,7 @@ class Campaign < ActiveRecord::Base
 
   delegate :name, :avatar, :email, :to => :user, :prefix => true
 
-  before_create :generate_random_id
+  before_validation :generate_random_id
   def generate_random_id
     self.random_id = SecureRandom.urlsafe_base64(20)
   end

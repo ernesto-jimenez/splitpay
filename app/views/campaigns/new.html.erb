@@ -1,0 +1,23 @@
+<header class="campaign">
+  <h1>Create your campaign</h1>
+</header>
+
+<%= form_for @campaign, :html => {class: 'campaign std-form'} do |form|-%>
+  <p><label>
+    Title:<br>
+    <%= form.text_field :title, placeholder: 'Gift for Darth Vader' %>
+  </label></p>
+
+  <p><label>
+    Description:<br>
+    <%= form.text_area :message, rows: 6, placeholder: "Hey guys! Let's get Darth Vader something cool for his birthday :)" %>
+  </label></p>
+
+  <p>
+  <label>How much per person?<br>
+    <%= form.text_field :amount, pattern: '[0-9]*', min: 0, size: 5, placeholder: '10.00', class: 'amount' %>
+    <%= select 'campaign', 'currency', Currencies.select_options %>
+  </p>
+
+  <p class="submit"><%= form.submit 'Create campaign' %></p>
+<% end -%>

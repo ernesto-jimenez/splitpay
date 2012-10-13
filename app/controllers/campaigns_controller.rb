@@ -1,16 +1,29 @@
 class CampaignsController < ApplicationController
-  skip_before_filter :require_login
+  skip_before_filter :require_login #, :only => :show
   def show
     @campaign = Campaign.find_by_random_id(params[:id])
     @payments_completed = @campaign.paid
   end
 
-  skip_before_filter :require_login # TODO: remove this
-  def create
+  def new
+    @campaign = Campaign.new
   end
 
-  skip_before_filter :require_login # TODO: remove this
+  def create
+    @campaign = current_user.campaigns.build(params[:campaign])
+
+    if @campaign.save!
+      redirect_to @campaign
+    else
+      render :action => :new
+    end
+  end
+
   def index
     @campaigns = Campaign.all
+  end
+
+  def current_user
+    User.first
   end
 end

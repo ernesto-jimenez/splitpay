@@ -1,9 +1,18 @@
+#encoding: utf-8
+
 class Currencies
-  ALL = {
-    :AUD => 'Australian Dollar',
-    :BRL => 'Brazilian Real',
-    :CAD => 'Canadian Dollar',
-    :CZK => 'Czech Koruna',
+  ALL = [
+    {code: 'EUR', long: 'Euro', short: 'EUR €', tiny: '€', format: "%n%u"},
+    {code: 'GBP', long: 'Pound Sterling', short: 'GBP £', tiny: '£', format: "%u%n"},
+    {code: 'USD', long: 'U.S. Dollars', short: 'USD $', tiny: '$', format: "%u%n"},
+  ]
+  CODES = ALL.collect { |currency| currency[:code] }
+  SELECT_OPTIONS = ALL.collect { |currency| [currency[:short], currency[:code]] }
+  {
+    :AUD => {long: 'Australian Dollar', short: 'AUD $', tiny: 'A$'},
+    :BRL => {long: 'Brazilian Real', short: 'BRL $', tiny: 'R$'},
+    :CAD => {long: 'Canadian Dollar', short: 'CAD $', tiny: 'C$'},
+    :CZK => {long: 'Czech Koruna', short: 'CZK Kč', tiny: 'Kč'},
     :DKK => 'Danish Krone',
     :EUR => 'Euro',
     :HKD => 'Hong Kong Dollar',
@@ -27,6 +36,10 @@ class Currencies
   }
 
   def self.keys
-    ALL.keys.map(&:to_s)
+    CODES
+  end
+
+  def self.select_options
+    SELECT_OPTIONS
   end
 end

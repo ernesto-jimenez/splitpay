@@ -16,33 +16,28 @@
       <h1>SplitPay<span class="highlight">At</span></h1>
       <nav class="main-menu">
         <ul>
-          <li><a href="#"><i class="icon-bullhorn"></i> New campaign</a></li>
-          <li>
+          <li><%= link_to new_campaign_path do -%><i class="icon-bullhorn"></i>New campaign<% end -%></li>
           <% if logged_in? -%>
-            <%= link_to logout_path do %>
-              <i class="icon-signout"></i>Logout
-            <% end -%>
+            <li><%= link_to logout_path do %><i class="icon-signout"></i>Logout<% end -%></li>
           <% else -%>
-            <%= link_to login_path do %>
-              <i class="icon-user"></i>Login
-            <% end -%>
+            <li><%= link_to login_path do %><i class="icon-user"></i>Login<% end -%></li>
           <% end -%>
           </li>
         </ul>
-      </nav>
-    </div>
-  </header>
-  <div class="outer-wrapper"><div class="main-wrapper">
-    <section class="main">
-      <%= yield %>
-    </section>
-  </div></div><!-- main wrapper -->
-  <footer class="main-footer">
-    <div class="wrapper">
-      <p class="left">Coded with love for <strong>Rails Rumble 2012</strong> by
+        </nav>
+      </div>
+      </header>
+      <div class="outer-wrapper"><div class="main-wrapper">
+          <section class="main">
+          <%= yield %>
+          </section>
+      </div></div><!-- main wrapper -->
+      <footer class="main-footer">
+      <div class="wrapper">
+        <p class="left">Coded with love for <strong>Rails Rumble 2012</strong> by
         <a href="http://www.twitter.com/ernesto_jimenez">@ernesto_jimenez</a> and <a href="http://www.twitter.com/ladybenko">@ladybenko</a>
-      </p>
-    </div>
-  </footer>
+        </p>
+      </div>
+      </footer>
 </body>
 </html>
