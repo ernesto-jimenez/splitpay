@@ -1,4 +1,7 @@
 Splitpayat::Application.routes.draw do
+  get "pages/home"
+  get "pages/about"
+
   match '/auth/:provider/callback', to: 'sessions#create'
 
   # The priority is based upon order of creation:
