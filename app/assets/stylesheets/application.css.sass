@@ -21,6 +21,7 @@
 @import compass/utilities/general/clearfix
 
 @import url(http://fonts.googleapis.com/css?family=Muli)
+@import _font-awesome
 
 $std-font: Arial, Helvetica, sans-serif
 $std-font-size: 12pt
@@ -115,14 +116,41 @@ header.main-header
   border-top: 5px solid $contrast-color
   div.wrapper    
     +std-wrapper
+    +clearfix
     padding-top: 15px
     padding-bottom: 15px
     h1
       font-size: 16pt
       font-weight: bold
       font-family: $fancy-font
+      display: inline-block
+      float: left
+      line-height: 30px
       span.highlight
         color: $contrast-color
+    
+nav.main-menu
+  display: inline-block
+  float: right
+  margin-left: 25px
+  ul
+    +clearfix
+  li
+    float: left
+    line-height: 30px
+    margin-left: 0.5em
+    &:before
+      content: "|"
+      margin-right: 0.5em
+      color: #aaa
+    &:first-child:before
+      content: ""
+      margin-left: 0em
+  a
+    color: #fff
+    text-decoration: none
+    &:hover
+      color: $contrast-color
 
 div.main-wrapper
   +std-wrapper
