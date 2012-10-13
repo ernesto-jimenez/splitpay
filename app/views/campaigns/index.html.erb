@@ -5,7 +5,7 @@
 <div class="campaigns-list-wrapper">
   <section class="open-campaigns">
     <h1><i class="icon-fire icon-dimmed"></i> On going</h1>
-  
+
     <% if @open_campaigns.size > 0 %>
     <ul>
       <% for campaign in @open_campaigns %>
@@ -15,12 +15,14 @@
     <% else %>
     <p>You have no on goign campagins.</p>
     <% end %>
-    <p class="actions"><a href="<%= create_campaign_path %>" class="button-ok"><i class="icon-bullhorn"></i> Start a campaign</a></p>
+    <p class="actions">
+    <%= link_to new_campaign_path, class: 'button-ok' do %><i class="icon-bullhorn"></i> Start a campaign</a><% end -%>
+    </p>
   </section>
 
   <section class="closed-campaigns">
     <h1><i class="icon-lock icon-dimmed"></i> Closed</h1>
-  
+
     <% if @closed_campaigns.size > 0 %>
     <ul>
       <% for campaign in @closed_campaigns %>

@@ -9,6 +9,11 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" charset="utf-8">
+    window.addEventListener("load",function() {
+      setTimeout(function(){ window.scrollTo(0, 0); }, 0);
+    });
+  </script>
 </head>
 <body>
   <header class="main-header">
