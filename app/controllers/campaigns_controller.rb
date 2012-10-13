@@ -6,4 +6,8 @@ class CampaignsController < ApplicationController
   skip_before_filter :require_login # TODO: remove this
   def create    
   end
+  
+  skip_before_filter :require_login # TODO: remove this
+  def index    
+  end
 end
