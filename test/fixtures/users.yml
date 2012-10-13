@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: erjica@gmail.com
+  name: Ernesto Jimenez
+  last_login_at: 2012-10-13 15:07:35
+
+two:
+  email: ladybenko@gmail.com
+  name: Belen Albeza
+  last_login_at: 2012-10-13 15:07:35

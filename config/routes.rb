@@ -1,7 +1,7 @@
 Splitpayat::Application.routes.draw do
   # get "pages/home"
   # get "pages/about"
-  
+
   root :to => 'pages#home'
   match '/about', to: 'pages#about'
 
@@ -17,6 +17,7 @@ Splitpayat::Application.routes.draw do
   match '/campaign/:id' => 'campaigns#show', :as => :campaign
 
   match '/auth/:provider/callback' => 'sessions#create'
+  match '/logout' => 'sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
