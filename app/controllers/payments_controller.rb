@@ -1,42 +1,34 @@
 class PaymentsController < ApplicationController
   def create
-    pay_request = PaypalAdaptive::Request.new
+    payment = Campaign.first.payments.build
 
-    data = {
-      "returnUrl" => payment_completed_url,
-      "requestEnvelope" => {"errorLanguage" => "en_US"},
-      "currencyCode"=>"USD",
-      "receiverList"=>{"receiver"=>[
-        {
-          "email"=>"erjica_1350132445_per@gmail.com",
-          "amount"=>"10.00",
-          "paymentType" => "PERSONAL"
-        }
-      ]},
-      "cancelUrl"=> payment_canceled_url,
-      "actionType"=>"PAY",
-      "feesPayer" => "SENDER",
-      "ipnNotificationUrl"=>ipn_notification_url,
-      "ClientDetails" => {
+    can_pay = payment.pay({
+      returnUrl: payment_completed_url(track: payment.tracking_id),
+      cancelUrl: payment_canceled_url(track: payment.tracking_id),
+      ipnNotificationUrl: ipn_notification_url,
+      ClientDetails: {
         applicationId: "splitpay.at",
         ipAddress: request.ip
       }
-    }
-
-    pay_response = pay_request.pay(data)
+    })
 
     # debugger
-    if pay_response.success?
-      redirect_to pay_response.approve_paypal_payment_url
+    if can_pay
+      redirect_to payment.payment_url
     else
-      puts pay_response.errors.first['message']
-      redirect_to failed_payment_url
+      puts payment.payment_error
+      redirect_to payment_canceled_url
     end
   end
 
   def completed
-    debugger
-    render :text => 'payment completed'
+    payment = Payment.find_by_tracking_id(params[:track])
+    if payment
+      payment.update_status
+      redirect_to "/campaign/1"
+    else
+      redirect_to root_path
+    end
   end
 
   def canceled

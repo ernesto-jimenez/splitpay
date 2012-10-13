@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+first_campaign_from_ernesto:
+  title: Present for Blanca
+  message: Let's get her a trip around the world
+  created_at: 2012-10-13 16:50:44
+  updated_at: 2012-10-13 16:50:44
+  amount: 1000
+  currency: EUR
+  user: ernesto
+
+second_campaign_from_ernesto:
+  title: Present for Belen
+  message: We are going to get BioWare to develop Mass Effect 4
+  created_at: 2012-10-13 16:50:44
+  updated_at: 2012-10-13 16:50:44
+  amount: 10000000
+  currency: EUR
+  user: ernesto

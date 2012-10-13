@@ -9,12 +9,12 @@ class UserTest < ActiveSupport::TestCase
 
   test "login with existing user doesn't create a new one" do
     assert_no_difference "User.count" do
-      User.login(email: 'erjica@gmail.com')
+      User.login(email: users(:ernesto).email)
     end
   end
 
   test "login with existing user doesn't override the name" do
-    user = User.login(email: 'erjica@gmail.com', name: 'A new name')
+    user = User.login(email: users(:ernesto).email, name: 'A new name')
     assert_equal 'Ernesto Jimenez', user.name
   end
 
