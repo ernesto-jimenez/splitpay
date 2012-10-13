@@ -55,16 +55,18 @@ header.main-header
       font-size: 16pt
       font-weight: bold
       font-family: $fancy-font
-      display: inline-block
-      float: left
-      line-height: 30px
+      +respond-to(desktop)
+        display: inline-block
+        float: left
+        line-height: 30px
       span.highlight
         color: $contrast-color
     
 nav.main-menu
-  display: inline-block
-  float: right
-  margin-left: 25px
+  +respond-to(desktop)
+    display: inline-block    
+    float: right
+    margin-left: 25px
   font-family: $fancy-font
   ul
     +clearfix
@@ -76,9 +78,12 @@ nav.main-menu
       content: "|"
       margin-right: 0.5em
       color: #aaa
-    &:first-child:before
-      content: ""
+    &:first-child
       margin-left: 0em
+      &:before
+        content: ""
+        margin-left: 0em
+        font-size: 0px
   a
     color: #fff
     text-decoration: none
