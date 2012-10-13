@@ -1,14 +1,34 @@
 <header class="campaign">
-  <h1>Your campaings</h1>
+  <h1>Your campaigns</h1>
 </header>
 
-<section class="open">
-<ul>
-  <% for campaign in @campaigns %>
-    <li><%= link_to campaign.title, campaign %></li>
-  <% end %>
-</ul>
-</section>
+<div class="campaigns-list-wrapper">
+  <section class="open-campaigns">
+    <h1><i class="icon-fire icon-dimmed"></i> On going</h1>
+  
+    <% if @open_campaigns.size > 0 %>
+    <ul>
+      <% for campaign in @open_campaigns %>
+      <li><%= link_to campaign.title, campaign %></li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p>You have no on goign campagins.</p>
+    <% end %>
+    <p class="actions"><a href="<%= create_campaign_path %>" class="button-ok"><i class="icon-bullhorn"></i> Start a campaign</a></p>
+  </section>
 
-<section class="closed">
-</section>
+  <section class="closed-campaigns">
+    <h1><i class="icon-lock icon-dimmed"></i> Closed</h1>
+  
+    <% if @closed_campaigns.size > 0 %>
+    <ul>
+      <% for campaign in @closed_campaigns %>
+      <li><%= link_to campaign.title, campaign %></li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p>You have no closed campaigns.</p>
+    <% end %>
+  </section>
+</div>

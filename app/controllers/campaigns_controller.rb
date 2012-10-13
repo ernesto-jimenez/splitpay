@@ -20,7 +20,9 @@ class CampaignsController < ApplicationController
   end
 
   def index
-    @campaigns = Campaign.all
+    campaigns = Campaign.all
+    @closed_campaigns = campaigns.select{|x| x.closed?}
+    @open_campaigns = campaigns - @closed_campaigns
   end
 
   def current_user
