@@ -1,0 +1,16 @@
+development:
+  environment: "sandbox"
+  username: "erjica_1350083571_biz_api1.gmail.com"
+  password: "1350083594"
+  signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31AUKtyddYbg14VE8XnwdJmrBC-jX-"
+  application_id: "APP-80W284485P519543T"
+  api_cert_file:
+
+test:
+  environment: "sandbox"
+  username: "erjica_1350083571_biz_api1.gmail.com"
+  password: "1350083594"
+  signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31AUKtyddYbg14VE8XnwdJmrBC-jX-"
+  application_id: "APP-80W284485P519543T"
+  api_cert_file:
+
