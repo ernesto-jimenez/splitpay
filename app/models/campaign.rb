@@ -10,4 +10,8 @@ class Campaign < ActiveRecord::Base
   validates_inclusion_of :currency, :in => Currencies.keys
 
   delegate :name, :avatar, :email, :to => :user, :prefix => true
+
+  def paid
+    payments.completed.select('email, status, user_id')
+  end
 end

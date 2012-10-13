@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
   def current_user
     user_id = session[:user_id]
-    @current_user ||= user_id ? User.find(user_id) : false
+    @current_user ||= user_id ? User.find_by_id(user_id) : false
   end
 
   def current_user=(user)

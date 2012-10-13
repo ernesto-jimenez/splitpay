@@ -1,17 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_id: 1
-  campaign_id: 1
-  status: MyString
-  email: MyString
+  user: ernesto
+  campaign: first_campaign_from_ernesto
+  email: erjica@gmail.com
   name: MyString
-  raw_details: MyText
+  raw_details: {}
+  status: COMPLETED
 
 two:
-  user_id: 1
-  campaign_id: 1
+  user: belen
+  campaign: first_campaign_from_ernesto
   status: MyString
-  email: MyString
+  email: ladybenko@gmail.com
   name: MyString
-  raw_details: MyText
+  raw_details: {}
+  status: COMPLETED
+
+three:
+  campaign: first_campaign_from_ernesto
+  status: MyString
+  email: phobeo@gmail.com
+  name: MyString
+  raw_details: {}
+  status: COMPLETED
+

@@ -15,6 +15,8 @@ class Payment < ActiveRecord::Base
   delegate :currency, :amount, :user_email,
     :to => :campaign, :prefix => true
 
+  delegate :email, :name, :to => :user, :prefix => true
+
   attr_accessor :payment_url, :payment_error
 
   def tracking_id
@@ -27,6 +29,15 @@ class Payment < ActiveRecord::Base
       self.user = User.find_or_create_by_email(email)
     end
   end
+
+  def user_with_lazy_load
+    if user = user_without_lazy_load
+      user
+    else
+      set_user
+    end
+  end
+  alias_method_chain :user, :lazy_load
 
   def update_status
     request = PaypalAdaptive::Request.new

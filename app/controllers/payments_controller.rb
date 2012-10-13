@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
       }
     })
 
-    # debugger
+    debugger
     if can_pay
       redirect_to payment.payment_url
     else
@@ -32,6 +32,9 @@ class PaymentsController < ApplicationController
   end
 
   def canceled
+    payment = Payment.find_by_tracking_id(params[:track])
+    payment.update_status
+
     render :text => 'payment cancelled'
   end
 end

@@ -1,21 +1,24 @@
 <header class="campaign">
-  <h1>A gift for Ricardo</h1>
+  <h1><%= @campaign.title %></h1>
 </header>
 
 <section class="description subsection">
+  <% if @campaign.message %>
   <div class="bubble">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p><%= @campaign.message %>
   </div>
-  
+  <% end -%>
+
   <div class="organiser">
-    <p><%= gravatar_image_tag('belen.albeza@gmail.com', :alt => 'Belén', :gravatar => { :size => 50, :default => 'mm' }) %> <span class="name">Belén</span> (organiser)</p>
+    <p><%= gravatar_image_tag(@campaign.user_email, :alt => @campaign.user_name, :gravatar => { :size => 50, :default => 'mm' }) %> <span class="name"><%= @campaign.user_name %></span> (organiser)</p>
   </div>
 </section><!-- description -->
 
 <section class="pay subsection">
-  <h1>Pay €10 to Belén</h1>
-  <p class="paypal-button"><a href=""><img src="https://www.paypal.com/en_US/i/btn/x-click-but6.gif"></a></p>
+  <h1>Pay <%= @campaign.currency + @campaign.amount.to_s %> to <%= @campaign.user_name %></h1>
+  <p class="paypal-button">
+    <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/x-click-but6.gif"), "/payment" %>
+  </p>
   <p class="paid-in-cash">Already <a href="#">paid in cash?</a></p>
 </section>
 
@@ -23,10 +26,10 @@
   <h1>People who have contributed</h2>
 
   <ul>
-    <li><%= gravatar_image_tag('tortajadablanca@gmail.com', :alt => 'Blanca', :gravatar => { :size => 30, :default => 'mm' }) %>Blanca</li>
-    <li><%= gravatar_image_tag('erjica@gmail.com', :alt => 'Ernesto', :gravatar => { :size => 30 }) %>Ernesto</li>
-    <li><%= gravatar_image_tag('damarisrfr@gmail.com', :alt => 'Ernesto', :gravatar => { :size => 30, :default => 'mm' } ) %>Dámaris</li>
+    <% @payments_completed.each do |payment| %>
+      <li><%= gravatar_image_tag(payment.user_email, :alt => payment.user_name, :gravatar => { :size => 30, :default => 'mm' }) %><%= payment.user_name %></li>
+    <% end %>
   </ul>
 </section><!-- payers -->
 
-  
+
