@@ -1,5 +1,15 @@
 Splitpayat::Application.routes.draw do
-  match '/auth/:provider/callback', to: 'sessions#create'
+
+  match '/payment', to: 'payments#create'
+
+  match '/payment/completed' => 'payments#completed',
+    as: :payment_completed
+  match '/payment/candeled' => 'payments#candeled',
+    as: :payment_canceled
+  match '/payment/ipn' => 'payments#ipn',
+    as: :ipn_notification
+
+  match '/auth/:provider/callback' => 'sessions#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

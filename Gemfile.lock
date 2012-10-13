@@ -74,6 +74,7 @@ GEM
       thor (~> 0.14)
     jruby-pageant (1.1.1)
     json (1.7.5)
+    jsonschema (2.0.2)
     jwt (0.1.5)
       multi_json (>= 1.0)
     libv8 (3.3.10.4)
@@ -105,6 +106,10 @@ GEM
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    paypal_adaptive (0.3.2)
+      json (~> 1.0)
+      jsonschema (~> 2.0.0)
+      rake (~> 0.8)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -163,6 +168,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   omniauth-paypal!
+  paypal_adaptive
   rack-force_domain
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
