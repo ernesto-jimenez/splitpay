@@ -5,9 +5,14 @@ Splitpayat::Application.routes.draw do
   root :to => 'pages#home'
   match '/about', to: 'pages#about'
 
-  match '/payment', to: 'payments#create'
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/logout' => 'sessions#destroy', :as => :logout
+  match '/login' => 'sessions#new', :as => :login
+  match '/auth/paypal', :as => :paypal_login
 
-  resources :campaigns do
+  match '/campaigns' => 'campaigns#index', :as => :campaigns
+
+  resources :campaigns, path: '' do
     resources :payments do
       member do
         get 'completed'
@@ -19,10 +24,6 @@ Splitpayat::Application.routes.draw do
   # match '/campaign/create' => 'campaigns#create', :as => :create_campaign
   # match '/campaign/:id' => 'campaigns#show', :as => :campaign
 
-  match '/auth/:provider/callback' => 'sessions#create'
-  match '/logout' => 'sessions#destroy', :as => :logout
-  match '/login' => 'sessions#new', :as => :login
-  match '/auth/paypal', :as => :paypal_login
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
