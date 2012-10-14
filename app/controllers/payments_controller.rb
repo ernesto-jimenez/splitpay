@@ -27,6 +27,8 @@ class PaymentsController < ApplicationController
     ipn.send_back(env['rack.request.form_vars'])
     if ipn.verified?
       #mark transaction as completed in your DB
+      payment = Payment.find_by_tracking_id(params[:id])
+      payment.update_status
       output = "Verified."
     else
       output = "Not Verified."
@@ -40,7 +42,7 @@ class PaymentsController < ApplicationController
     campaign = Campaign.find_by_random_id(params[:campaign_id])
     payment = Payment.find_by_tracking_id(params[:id])
     if payment
-      payment.update_status
+      # payment.update_status
       redirect_to campaign
     else
       redirect_to root_path
@@ -49,7 +51,7 @@ class PaymentsController < ApplicationController
 
   def canceled
     payment = Payment.find_by_tracking_id(params[:id])
-    payment.update_status
+    # payment.update_status
 
     render :text => 'payment cancelled'
   end
