@@ -59,8 +59,12 @@ header.main-header
   div.wrapper    
     +std-wrapper
     +clearfix
-    padding-top: 15px
-    padding-bottom: 15px
+    +respond-to(desktop)
+      padding-top: 15px
+      padding-bottom: 15px
+    +respond-to(phone)
+      padding-top: 10px
+      // padding-bottom: 5px
     h1
       font-size: 16pt
       font-weight: bold
@@ -72,6 +76,8 @@ header.main-header
         display: inline-block
         float: left
         line-height: 30px
+      +respond-to(phone)
+        margin-bottom: 5px
       span.highlight
         color: $contrast-color
     
