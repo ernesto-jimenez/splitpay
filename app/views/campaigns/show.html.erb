@@ -15,7 +15,7 @@
 </section><!-- description -->
 
 <section class="pay subsection">
-  <h1>Pay <%= number_to_currency(@campaign.amount, Currencies.detail(@campaign.currency)) %> to <%= @campaign.user_name %></h1>
+  <h1>Pay <%= campaign_amount(@campaign) %> to <%= @campaign.user_name %></h1>
   <p class="paypal-button">
   <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/x-click-but6.gif"), new_campaign_payment_path(@campaign), 'data-no-turbolink' => true %>
   </p>
@@ -34,9 +34,9 @@
   <% else %>
   <p>No one yet :(</p>
   <% end %>
-  
+
   <p class="actions">
     <%= mail_to '', 'Tell people about this', :subject => @email_data[:subject], :body => @email_data[:body], :class => 'button-ok single' %>
-    
+
   </p>
 </section><!-- payers -->
