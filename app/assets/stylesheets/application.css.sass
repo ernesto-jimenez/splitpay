@@ -106,9 +106,12 @@ section.main
     font-weight: bold
     color: #000
   & > header h1
+    +respond-to(desktop)
+      font-size: 32pt
+    +respond-to(phone)
+      font-size: 24pt
     margin-bottom: 0.5em
     text-align: center
-    font-size: 32pt
   h2, h3
     color: #000
   p, h1, h2, h3
@@ -127,21 +130,27 @@ footer.main-footer
     padding-top: 15px
     padding-bottom: 15px
   p.left
-    width: 44%
-    float: left
+    +respond-to(desktop)
+      width: 48%
+      float: left
   p.right
-    width: 44%
-    float: right
-    text-align: right
+    +respond-to(desktop)
+      width: 48%
+      float: right
+      text-align: right
     
 form.std-form
-  font-size: 20pt
+  +respond-to(desktop)
+    font-size: 20pt
+  +respond-to(phone)
+    font-size: 16pt
   input[type=text]
     +std-input
   textarea
     +std-textarea
   label
     font-weight: bold
+    line-height: 1.25em
   select
     font-size: 20pt
     padding: 0.5em
@@ -152,6 +161,7 @@ form.std-form
     +respond-to(desktop)
       text-align: right
     +respond-to(phone)
+      margin-top: 20px
       input[type=submit]
         width: 100%
   span.error
