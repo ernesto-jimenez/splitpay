@@ -44,12 +44,12 @@ end
 
 # Deploy with Capistrano
 gem 'capistrano'
+gem 'SyslogLogger'
 
 group :production do
   gem 'mysql2' # If using mysql in development, this can be outside the production group.
   gem 'therubyracer'
 
-  gem 'SyslogLogger'
   gem 'lograge'
 end
 
