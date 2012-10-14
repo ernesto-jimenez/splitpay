@@ -8,6 +8,7 @@ first_campaign_from_ernesto:
   amount: 1000
   currency: EUR
   user: ernesto
+  example: true
 
 second_campaign_from_ernesto:
   title: Present for Belen
@@ -17,6 +18,7 @@ second_campaign_from_ernesto:
   amount: 10000000
   currency: USD
   user: ernesto
+  example: true
 
 first_campaign_from_belen:
   title: A great surprise for somebody
@@ -26,5 +28,6 @@ first_campaign_from_belen:
   amount: 10
   currency: GBP
   user: belen
+  example: true
 
 

@@ -21,16 +21,22 @@
   </section>
 
   <section class="closed-campaigns">
+  <%- if @closed_campaigns.any? -%>
     <h1><i class="icon-lock icon-dimmed"></i> Closed</h1>
 
-    <% if @closed_campaigns.size > 0 %>
     <ul>
       <% for campaign in @closed_campaigns %>
       <li><%= link_to campaign.title, campaign %></li>
       <% end %>
     </ul>
-    <% else %>
-    <p>You have no closed campaigns.</p>
-    <% end %>
+  <% else -%>
+    <h1><i class="icon-eye-open icon-dimmed"></i> Examples</h1>
+
+    <ul>
+      <% for campaign in @example_campaigns %>
+      <li><%= link_to campaign.title, campaign %></li>
+      <% end %>
+    </ul>
+  <% end -%>
   </section>
 </div>
