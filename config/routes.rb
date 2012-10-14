@@ -10,7 +10,8 @@ Splitpayat::Application.routes.draw do
   match '/login' => 'sessions#new', :as => :login
   match '/auth/paypal', :as => :paypal_login
 
-  match '/campaigns' => 'campaigns#index', :as => :campaigns
+  get'/campaigns' => 'campaigns#index', :as => :campaigns
+  post '/campaigns' => 'campaigns#create', :as => :campaigns
 
   resources :campaigns, path: '' do
     resources :payments do
