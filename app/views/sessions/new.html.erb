@@ -1,1 +1,9 @@
-<%= link_to 'Login with paypal!', paypal_login_path, 'data-no-turbolink' => true %>
+<header>
+  <h1>Login with PayPal</h1>
+</header>
+
+<p>You need to login with your <strong>PayPal</strong> account to start a new campaign. Logging in <em>only</em> authenticates you inside the app, so we can point your friends to make payments to your account.</p>
+
+<p class="actions">
+  <%= link_to paypal_login_path, 'data-no-turbolink' => true, :class => 'button-ok single' do %><i class="icon-user"></i> Login with PayPal<% end %>
+</p>
