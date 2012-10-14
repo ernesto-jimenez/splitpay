@@ -1,5 +1,3 @@
-require 'syslog_logger'
-
 Splitpayat::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -40,7 +38,6 @@ Splitpayat::Application.configure do
 
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
-  config.logger = SyslogLogger.new("splitpay")
   config.lograge.enabled = true
   config.colorize_logging = false
 

@@ -8,7 +8,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    SyslogLogger (2.0)
     ZenTest (4.8.2)
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
@@ -187,7 +186,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  SyslogLogger
   autotest-fsevent
   autotest-growl
   autotest-rails
