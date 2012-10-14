@@ -9,6 +9,7 @@ class Campaign < ActiveRecord::Base
   validates_presence_of :currency
   validates_presence_of :random_id
   validates_inclusion_of :currency, :in => Currencies.keys
+  validates_numericality_of :amount, :greater_than => 0
 
   delegate :name, :avatar, :email, :to => :user, :prefix => true
 
