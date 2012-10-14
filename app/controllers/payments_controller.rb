@@ -22,6 +22,7 @@ class PaymentsController < ApplicationController
     end
   end
 
+  skip_before_filter :verify_authenticity_token, :only => :ipn
   def ipn
     ipn = PaypalAdaptive::IpnNotification.new
     ipn.send_back(env['rack.request.form_vars'])
