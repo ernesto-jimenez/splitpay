@@ -38,9 +38,9 @@
 
 <section class="share subsection">
   <h1><i class="icon-share icon-dimmed"></i> Share &amp; tell</h1>
-  <p class="desktop-only"><label>Permalink to this page (copy and paste on Twitter, Facebook, etc.):<br>
+  <p class="no-touch desktop-only"><label>Permalink to this page (copy and paste on Twitter, Facebook, etc.):<br>
     <input type="text" value="<%= campaign_url @campaign %>" class="permalink" readonly></label></p>
-  <p class="desktop-only">Or you can also:</p>
-  
+  <p class="no-touch desktop-only">Or you can also:</p>
+
   <p><%= mail_to '', '<i class="icon-envelope-alt"></i>  Tell people via email'.html_safe, :subject => @email_data[:subject], :body => @email_data[:body], :class => 'button-ok single' %></p>
 </share>
