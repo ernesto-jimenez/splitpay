@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Splitpay.At<%= @page_title ? " - #{@page_title}" : "" %></title>
+  <title>Splitpay.At</title>
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
@@ -21,11 +21,11 @@
       <h1><a href="<%= url_for root_path %>">SplitPay<span class="highlight">.At</span></a></h1>
       <nav class="main-menu">
         <ul>
-          <li><%= link_to new_campaign_path do -%><i class="icon-bullhorn"></i>Start campaign<% end -%></li>
+          <li><%= link_to new_campaign_path do -%><i class="icon-money"></i>Start campaign<% end -%></li>
           <% if logged_in? -%>
             <li><%= link_to logout_path do %><i class="icon-signout"></i>Logout<% end -%></li>
           <% else -%>
-            <li><%= link_to login_path do %><i class="icon-user"></i>Login<% end -%></li>
+            <li><%= link_to login_path, 'data-no-turbolink' => true do %><i class="icon-user"></i>Login<% end -%></li>
           <% end -%>
           </li>
         </ul>
