@@ -21,7 +21,8 @@ Splitpayat::Application.routes.draw do
 
   match '/auth/:provider/callback' => 'sessions#create'
   match '/logout' => 'sessions#destroy', :as => :logout
-  match '/auth/paypal', :as => :login
+  match '/login' => 'sessions#new', :as => :login
+  match '/auth/paypal', :as => :paypal_login
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

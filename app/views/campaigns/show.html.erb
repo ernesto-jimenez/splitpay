@@ -17,7 +17,7 @@
 <section class="pay subsection">
   <h1>Pay <%= campaign_amount(@campaign) %> to <%= @campaign.user_name %></h1>
   <p class="paypal-button">
-  <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/x-click-but6.gif"), new_campaign_payment_path(@campaign), 'data-no-turbolink' => true %>
+  <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/x-click-but6.gif"), campaign_payments_path(@campaign), method: :post %>
   </p>
   <p class="paid-in-cash">Already <a href="#">paid in cash?</a></p>
 </section>
