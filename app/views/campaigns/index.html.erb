@@ -2,11 +2,31 @@
   <h1>Your campaigns</h1>
 </header>
 
+<% if @open_campaigns.empty? && @closed_campaigns.empty? %>
+<div class="campaigns-examples-wrapper">
+  <section class="campaigns-intro">
+    <p><strong>Start a campaign</strong> and collect money from your friends for a gift,
+      a trip, a party, a world domination plan, etc.</p>
+    <p class="actions">
+    <%= link_to new_campaign_path, class: 'button-ok single' do %><i class="icon-bullhorn"></i> Start a campaign</a><% end -%>
+    </p>
+  </section>
+  <section class="campaigns-examples">
+    <h1><i class="icon-eye-open icon-dimmed"></i> Examples</h1>
+    
+    <ul>
+      <% for campaign in @example_campaigns %>
+      <li><%= link_to campaign.title, campaign %></li>
+      <% end %>
+    </ul>
+  </section>
+</div>
+<% else %>
 <div class="campaigns-list-wrapper">
   <section class="open-campaigns">
     <h1><i class="icon-fire icon-dimmed"></i> On going</h1>
 
-    <% if @open_campaigns.size > 0 %>
+    <% if @open_campaigns.any? %>
     <ul>
       <% for campaign in @open_campaigns %>
       <li><%= link_to campaign.title, campaign %></li>
@@ -20,23 +40,15 @@
     </p>
   </section>
 
-  <section class="closed-campaigns">
-  <%- if @closed_campaigns.any? -%>
+  <section class="closed-campaigns">  
     <h1><i class="icon-lock icon-dimmed"></i> Closed</h1>
-
-    <ul>
-      <% for campaign in @closed_campaigns %>
-      <li><%= link_to campaign.title, campaign %></li>
-      <% end %>
-    </ul>
-  <% else -%>
-    <h1><i class="icon-eye-open icon-dimmed"></i> Examples</h1>
-
-    <ul>
-      <% for campaign in @example_campaigns %>
-      <li><%= link_to campaign.title, campaign %></li>
-      <% end %>
-    </ul>
-  <% end -%>
+    <%- if @closed_campaigns.any? -%>
+      <ul>
+        <% for campaign in @closed_campaigns %>
+        <li><%= link_to campaign.title, campaign %></li>
+        <% end %>
+      </ul>
+    <% end -%>
   </section>
-</div>
+</div><!-- campaigns list wrapper -->
+<% end %>
