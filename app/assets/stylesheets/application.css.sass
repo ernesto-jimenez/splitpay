@@ -117,7 +117,7 @@ section.main
   h2, h3
     color: #000
   p, h1, h2, h3
-    margin: 0.5em 0em
+    margin: 0.75em 0em
 
 section.subsection
   h1
@@ -169,4 +169,21 @@ form.std-form
   span.error
     color: $error-fg-color
     font-size: $std-font-size
+    
+div.bubble
+  +border-radius(10px)
+  background: image-url('background.png')
+  padding: 15px
+  margin-top: 30px
+  position: relative  
+  margin-bottom: 20px
+  &:after
+    content: ""
+    position: absolute
+    bottom: -10px
+    left: 15px
+    border-top: 10px solid #dfdfdf
+    border-top-image: image-url('light_noise.png')
+    border-left: 10px solid transparent
+    border-right: 10px solid transparent
     

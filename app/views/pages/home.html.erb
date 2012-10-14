@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<header>
+  <h1>What is this?</h1>
+</header>
+
+<div class="bubble">
+<p><strong>SplitPay.At</strong> is the easiest way to get payments from your friends, whether you want to buy a gift or collect money for a party.</p>
+
+<p>People can pay you via <strong>Paypal</strong> with no registration, and straight from their mobile phones.</p>
+
+<p>Why don't you give it a try? :)</p>
+</div><!-- bubble -->
+
+<p class="actions"><%= link_to login_path, 'data-no-turbolink' => true, :class => 'button-ok single' do %><i class="icon-user"></i> Login<% end -%></p>
