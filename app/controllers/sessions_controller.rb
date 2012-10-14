@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.login(auth_hash['info'])
     self.current_user = user
-    redirect_to root_path
+    redirect_to session[:return_to] || root_path
   end
 
   def destroy
