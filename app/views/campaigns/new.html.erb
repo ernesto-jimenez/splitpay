@@ -22,9 +22,9 @@
   </label></p>
 
   <p>
-  <label>How much per person?<br>
+  <label for="amount">How much per person?</label><br>
     <%= select 'campaign', 'currency', Currencies.select_options %>
-    <%= form.text_field :amount, pattern: '[0-9]*', min: 0, size: 5, placeholder: '10', class: 'amount' %></label>
+    <%= form.text_field :amount, pattern: '[0-9]*', min: 0, size: 5, placeholder: '10', class: 'amount' %>
     <% unless @campaign.errors[:amount].empty? %>
       <br><span class="error"><%= @campaign.errors[:amount].map{|x| x.capitalize}.join('; ') %></span>
     <% end %>

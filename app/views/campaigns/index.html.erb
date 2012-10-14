@@ -24,14 +24,17 @@
   </section>
 
   <section class="closed-campaigns">
-    <h1><i class="icon-lock icon-dimmed"></i> Closed</h1>
+    <h1><i class="icon-lock icon-dimmed"></i> Archived</h1>
     <%- if @closed_campaigns.any? -%>
       <ul>
         <% for campaign in @closed_campaigns %>
         <li><%= link_to campaign.title, campaign %></li>
         <% end %>
       </ul>
-    <% end -%>
+    <% else -%>
+    <p>You have no archive campaigns.</p>
+    <% end %>
+    <p>Campaigns are automatically archived after 30 days of inactivity.</p>
   </section>
 </div><!-- campaigns list wrapper -->
 <% end %>
