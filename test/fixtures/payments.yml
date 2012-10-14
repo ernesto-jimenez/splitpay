@@ -25,3 +25,27 @@ three:
   raw_details: {}
   status: COMPLETED
 
+four:
+  campaign: sponsorship_from_ernesto
+  status: MyString
+  email: benko@ladybenko.net
+  name: MyString
+  raw_details: {}
+  status: COMPLETED
+
+five:
+  campaign: sponsorship_from_ernesto
+  status: MyString
+  email: tom@railsrumble.com
+  name: MyString
+  raw_details: {}
+  status: COMPLETED
+
+six:
+  campaign: sponsorship_from_ernesto
+  status: MyString
+  email: david@loudthinking.com
+  name: MyString
+  raw_details: {}
+  status: COMPLETED
+
