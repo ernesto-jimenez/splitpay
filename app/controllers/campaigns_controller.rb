@@ -1,9 +1,9 @@
 class CampaignsController < ApplicationController
-  skip_before_filter :require_login #, :only => :show
+  skip_before_filter :require_login, :only => :show
   def show
-    @campaign = Campaign.find_by_random_id(params[:id])
+    @campaign = Campaign.find_by_random_id!(params[:id])
     @payments_completed = @campaign.paid
-    
+
     @email_data = {:subject => "#{@campaign.title}",
                    :body => <<-EOS
 #{@campaign.user.name} said:

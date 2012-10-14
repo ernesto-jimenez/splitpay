@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   skip_before_filter :require_login
   def new
-    campaign = Campaign.find_by_random_id(params[:campaign_id])
+    campaign = Campaign.find_by_random_id!(params[:campaign_id])
     payment = campaign.payments.build
 
     can_pay = payment.pay({
@@ -27,7 +27,7 @@ class PaymentsController < ApplicationController
     ipn.send_back(env['rack.request.form_vars'])
     if ipn.verified?
       #mark transaction as completed in your DB
-      payment = Payment.find_by_tracking_id(params[:id])
+      payment = Payment.find_by_tracking_id!(params[:id])
       payment.update_status
       output = "Verified."
     else
@@ -39,10 +39,10 @@ class PaymentsController < ApplicationController
 
 
   def completed
-    campaign = Campaign.find_by_random_id(params[:campaign_id])
-    payment = Payment.find_by_tracking_id(params[:id])
+    campaign = Campaign.find_by_random_id!(params[:campaign_id])
+    payment = Payment.find_by_tracking_id!(params[:id])
     if payment
-      # payment.update_status
+      payment.update_status
       redirect_to campaign
     else
       redirect_to root_path
