@@ -1,31 +1,32 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 first_campaign_from_ernesto:
-  title: Present for Belén
-  message: We are going to get BioWare to develop Mass Effect 4
-  created_at: 2012-10-13 16:50:44
-  updated_at: 2012-10-13 16:50:44
-  amount: 10000000
-  currency: USD
+  title: Spanish Paella
+  message: Getting al the right ingredients in London is going to be expensive, but you will like it
+  created_at: 2012-10-13 16:40:44
+  updated_at: 2012-10-13 16:40:44
+  amount: 20
+  currency: GBP
   user: ernesto
   example: true
 
 first_campaign_from_belen:
-  title: A great surprise for somebody
-  message: Lord Voldemort cannot even imagine what is coming to him... MWAHAHAHA
+  title: Prizes for the rumble
+  message: Let's collect the money to get some nice prizes for the amazing contestants!
   created_at: 2012-10-13 16:50:44
   updated_at: 2012-10-13 16:50:44
-  amount: 10
-  currency: GBP
-  user: belen
+  amount: 50
+  currency: EUR
+  user: tom
   example: true
 
 sponsorship_from_ernesto:
-  title: Sponsor the code monkeys :)
-  message: "We need to pay the pizza, caffeine and energy-drinks for this competition." 
-  created_at: 2012-10-13 16:50:44
-  updated_at: 2012-10-13 16:50:44
+  title: Food for the Rails Rumble! :)
+  message: "We need to pay the pizza, caffeine and energy-drinks for this competition."
+  created_at: 2012-10-13 16:51:44
+  updated_at: 2012-10-13 16:51:44
   amount: 1
-  currency: GBP
+  currency: USD
   user: ernesto
   example: true
+

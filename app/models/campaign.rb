@@ -13,7 +13,7 @@ class Campaign < ActiveRecord::Base
 
   delegate :name, :avatar, :email, :to => :user, :prefix => true
 
-  scope :examples, where(:example => true)
+  scope :examples, where(:example => true).order('updated_at DESC')
 
   before_validation :generate_random_id
   def generate_random_id
