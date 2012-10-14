@@ -45,9 +45,18 @@ section.payers
       float: left
   p.actions
     margin-top: 20px
+    
 form.campaign
   input.amount
     width: auto
+    
+section.share
+  margin-top: 2em
+  padding-top: 1em
+  border-top: 1px solid #ddd
+  input.permalink
+    +std-input
+    font-size: 16pt
     
 @mixin campaign-list
   +respond-to(desktop)
