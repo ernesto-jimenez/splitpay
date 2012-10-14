@@ -6,3 +6,14 @@ $('select#campaign_currency').live('change', ->
   amount = $('#campaign_amount')
   amount.focus() if amount.val() == ''
 )
+
+$('input.permalink').live('focus', (event) ->
+  element = this
+  setTimeout( ->
+    element.setSelectionRange(0, 9999)
+  , 1)
+  return true
+  #debugger
+).live('mouseup', (event) ->
+  event.preventDefault()
+)
