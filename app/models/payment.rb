@@ -10,7 +10,7 @@ class Payment < ActiveRecord::Base
   validates_presence_of :tracking_id
 
   Statuses = %w{CREATED COMPLETED INCOMPLETE ERROR REVERSALERROR
-                PROCESSING PENDING}
+                PROCESSING PENDING REVERSED}
 
   delegate :currency, :amount, :user_email,
     :to => :campaign, :prefix => true
@@ -49,7 +49,11 @@ class Payment < ActiveRecord::Base
 
 
     if response['responseEnvelope']['ack'] == 'Success'
-      self.status = response['status']
+      if response['paymentInfoList']['paymentInfo'][0]['senderTransactionStatus'] == "REVERSED"
+        self.status = 'REVERSED'
+      else
+        self.status = response['status']
+      end
       self.email = response['senderEmail']
       self.raw_details = response.to_json
       self.save
