@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def require_login
+    session[:return_to] = request.path
     redirect_to login_path unless logged_in?
   end
 end
