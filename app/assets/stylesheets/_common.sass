@@ -26,7 +26,7 @@ $error-bg-color: #fee
   @else if $media == desktop // desktop and tablets
     @media only screen and (min-width: 481px)
       @content
-      
+
 @mixin big-gravatar
   height: 50px
   width: 50px
@@ -35,8 +35,8 @@ $error-bg-color: #fee
 @mixin small-gravatar
   height: 30px
   width: 30px
-  display: inline-block      
-      
+  display: inline-block
+
 @mixin std-button
   +border-radius(5px)
   +box-sizing(border-box)
@@ -73,7 +73,7 @@ $error-bg-color: #fee
   &.error
     border: 2px solid $error-fg-color
     background: $error-bg-color
-      
+
 @mixin std-textarea
   background: #fff
   border: 1px solid #ddd
@@ -84,4 +84,4 @@ $error-bg-color: #fee
 
 @mixin std-submit
   +std-button-ok
-  +box-sizing(border-box)      
+  +box-sizing(border-box)
