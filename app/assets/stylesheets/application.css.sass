@@ -28,7 +28,7 @@ body
   background: #ddd
   color: #333
   height: 100%
-  
+
 i.icon-dimmed
   opacity: 0.5
 
@@ -37,17 +37,20 @@ p, li, h1, h2, h3
 
 a
   color: $contrast-color
-  
+
 a.button-ok
   +std-button-ok
 
 a.button-dark
   +std-button-dark
 
+button.button-ok
+  +std-button-ok
+
 strong
   color: $darkest-text-color
   font-weight: bold
-  
+
 em
   font-style: italic
 
@@ -56,7 +59,7 @@ header.main-header
   z-index: 10
   color: #fff
   border-top: 5px solid $contrast-color
-  div.wrapper    
+  div.wrapper
     +std-wrapper
     +clearfix
     padding-top: 15px
@@ -74,10 +77,10 @@ header.main-header
         line-height: 30px
       span.highlight
         color: $contrast-color
-    
+
 nav.main-menu
   +respond-to(desktop)
-    display: inline-block    
+    display: inline-block
     float: right
     margin-left: 25px
   font-family: $fancy-font
@@ -154,7 +157,7 @@ footer.main-footer
       width: 48%
       float: right
       text-align: right
-    
+
 form.std-form
   +respond-to(desktop)
     font-size: 20pt
@@ -184,13 +187,13 @@ form.std-form
     color: $error-fg-color
     font-size: $std-font-size
     font-weight: bold
-    
+
 div.bubble
   +border-radius(10px)
   background: image-url('background.png')
   padding: 15px
   margin-top: 30px
-  position: relative  
+  position: relative
   margin-bottom: 20px
   &:after
     content: ""
@@ -201,7 +204,7 @@ div.bubble
     border-top-image: image-url('light_noise.png')
     border-left: 10px solid transparent
     border-right: 10px solid transparent
-    
+
 div.video
   iframe
     width: 100%
