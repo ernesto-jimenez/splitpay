@@ -64,13 +64,17 @@ section.share
     float: left
     width: 48%
   ul
-    margin-left: 1.5em
+    // margin-left: 1.5em
   li
     line-height: 1.25em
-    list-style-type: disc
     padding: 0.25em 0em
     &:first-child
       padding-top: 0em
+    &:before
+      font-family: FontAwesome
+      content: "\f00c"
+      display: inline-block
+      margin-right: 0.5em
   p.actions
     margin-top: 1em
 
