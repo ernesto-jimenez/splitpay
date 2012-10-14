@@ -33,18 +33,10 @@ four:
   raw_details: {}
   status: COMPLETED
 
-five:
-  campaign: sponsorship_from_ernesto
-  status: MyString
-  email: tom@railsrumble.com
-  name: MyString
-  raw_details: {}
-  status: COMPLETED
-
 six:
   campaign: sponsorship_from_ernesto
   status: MyString
-  email: david@loudthinking.com
+  email: phobeo@gmail.com
   name: MyString
   raw_details: {}
   status: COMPLETED
