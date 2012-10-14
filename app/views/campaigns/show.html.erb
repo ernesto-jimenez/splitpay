@@ -15,7 +15,7 @@
 </section><!-- description -->
 
 <section class="pay subsection">
-  <h1>Pay <%= number_to_currency(@campaign.amount, Currencies.detail(@campaign.currency)) %> to <%= @campaign.user_name %></h1>
+  <h1>Pay <%= campaign_amount(@campaign) %> to <%= @campaign.user_name %></h1>
   <p class="paypal-button">
   <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/x-click-but6.gif"), new_campaign_payment_path(@campaign), 'data-no-turbolink' => true %>
   </p>
@@ -41,6 +41,5 @@
   <p><label>Permalink to this page (copy and paste on Twitter, Facebook, etc.):<br>
     <input type="text" value="<%= polymorphic_url @campaign %>" class="permalink" readonly onClick="javascript:this.focus();this.select();"></label></p>
   <p>Or you can also:</p> 
-  <p><%= mail_to '', 'Tell people via email', :subject => @email_data[:subject], :body => @email_data[:body], :class => 'button-ok single' %>    
-  </p>
+  <p><%= mail_to '', 'Tell people via email', :subject => @email_data[:subject], :body => @email_data[:body], :class => 'button-ok single' %></p>
 </share>

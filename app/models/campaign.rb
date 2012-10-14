@@ -12,6 +12,8 @@ class Campaign < ActiveRecord::Base
 
   delegate :name, :avatar, :email, :to => :user, :prefix => true
 
+  scope :examples, where(:example => true)
+
   before_validation :generate_random_id
   def generate_random_id
     self.random_id = SecureRandom.urlsafe_base64(20)

@@ -14,11 +14,11 @@ section.description
     img
       +big-gravatar
       float: left
-      margin-right: 0.5em            
+      margin-right: 0.5em
     span.name
       font-weight: bold
       color: #000
-  
+
 section.pay
   border-top: 1px solid #ddd
   border-bottom: 1px solid #ddd
@@ -26,7 +26,7 @@ section.pay
   margin: 30px 0px
   p.paypal-button
     margin: 0em
-  
+
 section.payers
   ul
     +clearfix
@@ -41,7 +41,7 @@ section.payers
       font-size: 14pt
     img
       +small-gravatar
-      margin-right: 0.5em      
+      margin-right: 0.5em
       float: left
   p.actions
     margin-top: 20px
@@ -49,6 +49,7 @@ section.payers
 form.campaign
   input.amount
     width: auto
+    text-align: right
     
 section.share
   margin-top: 2em
@@ -61,7 +62,7 @@ section.share
 @mixin campaign-list
   +respond-to(desktop)
     float: left
-    width: 48%    
+    width: 48%
   ul
     margin-left: 1.5em
   li
@@ -75,12 +76,12 @@ section.share
   p.actions
     margin-top: 1em
 
-div.campaigns-list-wrapper    
+div.campaigns-list-wrapper
   +clearfix
-    
+
 section.open-campaigns
   +campaign-list
-  
+
 section.closed-campaigns
   +campaign-list
   +respond-to(desktop)
