@@ -220,39 +220,40 @@ div.campaigns-examples-wrapper
 
 section.steps
   counter-reset: steps
-  padding-top: 30px
   h1
-    padding-bottom: 20px
+    margin-bottom: 20px
   ol
     +clearfix
-    overflow: visible    
   li
     counter-increment: steps
+    +box-sizing(border-box)
     +respond-to(desktop)
       float: left
       width: 32%
       margin-left: 2%
-    position: relative
-    overflow: visible
-    padding: 15px
-    text-align: center
-    +box-sizing(border-box)
-    &:first-child
-      margin-left: 0px
-    &:before
-      +border-radius(100px)
-      +box-shadow(1px 1px 3px rgba(0, 0, 0, 0.5))         
-      display: block
-      content: counter(steps)
-      font-size: 32pt
-      font-weight: bold
-      background: #ddd
-      text-align: center
-      margin-top: -45px
-      padding: 10px
-      width: 40px
-      height: 40px
-      line-height: 40px
-      margin-left: auto
-      margin-right: auto
-      margin-bottom: 20px
+      text-align: center      
+      padding: 15px
+      &:first-child
+        margin-left: 0px
+      &:before
+        +border-radius(100px)
+        +box-shadow(1px 1px 3px rgba(0, 0, 0, 0.5))         
+        font-size: 32pt
+        width: 40px
+        height: 40px
+        line-height: 40px        
+        display: block      
+        content: counter(steps)
+        font-weight: bold
+        text-align: center      
+        background: #ddd
+        padding: 10px
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: 20px
+    +respond-to(phone)
+      list-style-type: decimal
+      list-style-type: outside
+      margin-left: 20px
+      margin-top: 0.5em
+      margin-bottom: 0.5em
