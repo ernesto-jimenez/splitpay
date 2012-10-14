@@ -30,12 +30,12 @@ class Campaign < ActiveRecord::Base
   def paid
     payments.completed.select('email, status, user_id')
   end
-  
+
   # TODO: this is a stub
   def closed?
-    true
+    false
   end
-  
+
   def from?(user)
     self.user == user
   end

@@ -22,6 +22,20 @@ class PaymentsController < ApplicationController
     end
   end
 
+  def ipn
+    ipn = PaypalAdaptive::IpnNotification.new
+    ipn.send_back(env['rack.request.form_vars'])
+    if ipn.verified?
+      #mark transaction as completed in your DB
+      output = "Verified."
+    else
+      output = "Not Verified."
+    end
+
+    render :text => output, :status => 200
+  end
+
+
   def completed
     campaign = Campaign.find_by_random_id(params[:campaign_id])
     payment = Payment.find_by_tracking_id(params[:id])

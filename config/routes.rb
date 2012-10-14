@@ -12,7 +12,7 @@ Splitpayat::Application.routes.draw do
       member do
         get 'completed'
         get 'canceled'
-        get 'ipn'
+        post 'ipn'
       end
     end
   end
