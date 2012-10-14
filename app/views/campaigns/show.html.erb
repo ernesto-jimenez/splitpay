@@ -3,27 +3,27 @@
   <h1><%= @campaign.title %></h1>
 </header>
 
+<% unless @campaign.message.blank? %>
 <section class="description subsection">
-  <% if !@campaign.message.blank? %>
   <div class="bubble">
     <p><%= @campaign.message %>
   </div>
-  <% end -%>
 
   <div class="organiser">
     <p><%= gravatar_image_tag(@campaign.user_email, :alt => @campaign.user_name, :gravatar => { :size => 50, :default => 'mm' }) %> <span class="name"><%= @campaign.user_name %></span></p>
   </div>
 </section><!-- description -->
+<% end -%>
 
 <section class="pay subsection">
-  <h1>Pay <%= campaign_amount(@campaign) %> to <%= @campaign.user_name %></h1>
+  <h1><i class="icon-money icon-dimmed"></i> Pay <%= campaign_amount(@campaign) %> to <%= @campaign.user_name %></h1>
   <p class="paypal-button">
   <%= link_to image_tag("buy.gif"), campaign_payments_path(@campaign), method: :post %>
   </p>
 </section>
 
 <section class="payers subsection">
-  <h1>People who have contributed</h2>
+  <h1><i class="icon-group icon-dimmed"></i> People who have contributed</h2>
 
   <% if @payments_completed.size > 0 %>
   <ul>
@@ -37,7 +37,7 @@
 </section><!-- payers -->
 
 <section class="share subsection">
-  <h1>Share &amp; tell</h1>
+  <h1><i class="icon-share icon-dimmed"></i> Share &amp; tell</h1>
   <p class="desktop-only"><label>Permalink to this page (copy and paste on Twitter, Facebook, etc.):<br>
     <input type="text" value="<%= campaign_url @campaign %>" class="permalink" readonly></label></p>
   <p class="desktop-only">Or you can also:</p>

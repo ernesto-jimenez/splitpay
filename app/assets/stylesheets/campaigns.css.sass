@@ -5,6 +5,7 @@
 @import _common
 
 section.description
+  border-bottom: 1px solid #ddd
   div.organiser
     margin-top: 20px
     font-size: 14pt
@@ -20,10 +21,8 @@ section.description
       color: $darkest-text-color
 
 section.pay
-  border-top: 1px solid #ddd
   border-bottom: 1px solid #ddd
-  text-align: center
-  margin: 30px 0px
+  margin: 1em 0px
   p.paypal-button
     margin-top: 0em
 
@@ -52,15 +51,14 @@ form.campaign
     text-align: right
     
 section.share
-  margin-top: 2em
-  padding-top: 1em
+  margin-top: 1em
   border-top: 1px solid #ddd
   input.permalink
     +std-input
-    background: #FFFB9C
-    border: 2px dotted #DBAF58
+    background: #fffb9c
+    border: 2px dotted #dbaf58
     font-size: 16pt
-    color: #81683A
+    color: #81683a
     
 @mixin campaign-list
   +respond-to(desktop)
