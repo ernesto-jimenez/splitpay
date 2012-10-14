@@ -40,11 +40,11 @@ a.button-ok
     +respond-to(phone)
       width: 99.5%
 strong
-  color: #000
+  color: $darkest-text-color
   font-weight: bold
 
 header.main-header
-  +background(linear-gradient(bottom, #000, #444))
+  +background(linear-gradient(bottom, #000, #3d3d3d))
   z-index: 10
   color: #fff
   border-top: 5px solid $contrast-color
@@ -102,23 +102,24 @@ div.outer-wrapper
   +clearfix
   +box-shadow(inset 0px 2px 5px rgba(0, 0, 0, 0.5))
   padding-bottom: 50px
-  background: #fff
+  background: image-url('cream_dust.png')
 
 section.main
   h1
     font-family: $std-font
     font-size: 22pt
     font-weight: bold
-    color: #000
+    color: $darkest-text-color
   & > header h1
     +respond-to(desktop)
       font-size: 32pt
+      text-align: left
     +respond-to(phone)
       font-size: 24pt
-    margin-bottom: 0.5em
-    text-align: center
+      text-align: center
+    margin-bottom: 0.5em    
   h2, h3
-    color: #000
+    color: $darkest-text-color
   p, h1, h2, h3
     margin: 0.75em 0em
 
