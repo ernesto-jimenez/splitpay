@@ -214,3 +214,45 @@ div.bubble
 div.video
   iframe
     width: 100%
+    
+div.campaigns-examples-wrapper
+  +clearfix
+
+section.steps
+  counter-reset: steps
+  padding-top: 30px
+  h1
+    padding-bottom: 20px
+  ol
+    +clearfix
+    overflow: visible    
+  li
+    counter-increment: steps
+    +respond-to(desktop)
+      float: left
+      width: 32%
+      margin-left: 2%
+    position: relative
+    overflow: visible
+    padding: 15px
+    text-align: center
+    +box-sizing(border-box)
+    &:first-child
+      margin-left: 0px
+    &:before
+      +border-radius(100px)
+      +box-shadow(1px 1px 3px rgba(0, 0, 0, 0.5))         
+      display: block
+      content: counter(steps)
+      font-size: 32pt
+      font-weight: bold
+      background: #ddd
+      text-align: center
+      margin-top: -45px
+      padding: 10px
+      width: 40px
+      height: 40px
+      line-height: 40px
+      margin-left: auto
+      margin-right: auto
+      margin-bottom: 20px
