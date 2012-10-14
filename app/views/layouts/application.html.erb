@@ -21,7 +21,7 @@
       <h1><a href="<%= url_for root_path %>">SplitPay<span class="highlight">.At</span></a></h1>
       <nav class="main-menu">
         <ul>
-          <li><%= link_to new_campaign_path do -%><i class="icon-money"></i>Start campaign<% end -%></li>
+          <li><%= link_to new_campaign_path do -%><i class="icon-money"></i>Start a campaign<% end -%></li>
           <% if logged_in? -%>
             <li><%= link_to logout_path do %><i class="icon-signout"></i>Logout<% end -%></li>
           <% else -%>
@@ -42,6 +42,7 @@
         <p class="left">Coded with love for <strong>Rails Rumble 2012</strong> by
         <a href="http://www.twitter.com/ernesto_jimenez">@ernesto_jimenez</a> and <a href="http://www.twitter.com/ladybenko">@ladybenko</a>
         </p>
+        <p class="right"><a href="http://r12.railsrumble.com/entries/58-caffeine-maniacs" class="button-dark single"><i class="icon-heart"></i> Vote for us! :)</a></p> 
       </div>
       </footer>
 <%- if Rails.env.production? -%>

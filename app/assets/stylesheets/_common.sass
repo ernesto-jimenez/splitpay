@@ -49,6 +49,9 @@ $error-bg-color: #fee
   text-align: center
   &:hover
     cursor: pointer
+  &.single
+    +respond-to(phone)
+      width: 99.5%
 
 @mixin std-button-ok
   +std-button
@@ -56,6 +59,13 @@ $error-bg-color: #fee
   +text-shadow(-1px -1px 0px rgba(0, 0, 0, 0.3))
   +box-shadow(2px 2px 5px rgba(0, 0, 0, 0.5))
   color: #fff
+  
+@mixin std-button-dark
+  +std-button
+  +background(linear-gradient(bottom, #000, #3d3d3d))
+  +text-shadow(-1px -1px 0px rgba(0, 0, 0, 0.3))
+  +box-shadow(2px 2px 5px rgba(0, 0, 0, 0.5))
+  color: #fff  
 
 @mixin std-wrapper
   +respond-to(desktop)

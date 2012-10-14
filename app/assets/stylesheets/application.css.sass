@@ -40,9 +40,10 @@ a
   
 a.button-ok
   +std-button-ok
-  &.single
-    +respond-to(phone)
-      width: 99.5%
+
+a.button-dark
+  +std-button-dark
+
 strong
   color: $darkest-text-color
   font-weight: bold
@@ -146,6 +147,8 @@ footer.main-footer
     +respond-to(desktop)
       width: 48%
       float: left
+    +respond-to(phone)
+      margin-bottom: 1em
   p.right
     +respond-to(desktop)
       width: 48%
