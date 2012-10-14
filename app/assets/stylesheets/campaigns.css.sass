@@ -67,15 +67,17 @@ form.campaign
 @mixin campaign-list
   +respond-to(desktop)
     float: left
-    width: 48%
+    width: 48%    
   ul
-    margin-left: 1em
+    margin-left: 1.5em
   li
     line-height: 1.25em
     list-style-type: disc
-    padding: 0.5em 0em
+    padding: 0.25em 0em
     &:hover
       background: #efefef
+    &:first-child
+      padding-top: 0em
   p.actions
     margin-top: 1em
 
@@ -89,3 +91,5 @@ section.closed-campaigns
   +campaign-list
   +respond-to(desktop)
     float: right
+  +respond-to(phone)
+    margin-top: 20px
