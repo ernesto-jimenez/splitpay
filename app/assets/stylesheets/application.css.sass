@@ -18,6 +18,10 @@
 @import compass/reset
 @import _common
 
+.desktop-only
+  +respond-to(phone)
+    display: none
+
 body
   font-family: $std-font
   font-size: $std-font-size
