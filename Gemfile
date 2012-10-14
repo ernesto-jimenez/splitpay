@@ -48,9 +48,13 @@ gem 'capistrano'
 group :production do
   gem 'mysql2' # If using mysql in development, this can be outside the production group.
   gem 'therubyracer'
+
+  gem 'SyslogLogger'
+  gem 'lograge'
 end
 
 # To use debugger
 group :development do
   gem 'debugger'
+  gem 'quiet_assets'
 end

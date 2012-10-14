@@ -8,6 +8,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    SyslogLogger (2.0)
     ZenTest (4.8.2)
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
@@ -94,6 +95,9 @@ GEM
     jwt (0.1.5)
       multi_json (>= 1.0)
     libv8 (3.3.10.4)
+    lograge (0.0.6)
+      actionpack
+      activesupport
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -127,6 +131,8 @@ GEM
       jsonschema (~> 2.0.0)
       rake (~> 0.8)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -181,6 +187,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  SyslogLogger
   autotest-fsevent
   autotest-growl
   autotest-rails
@@ -190,9 +197,11 @@ DEPENDENCIES
   debugger
   gravatar_image_tag
   jquery-rails
+  lograge
   mysql2
   omniauth-paypal!
   paypal_adaptive
+  quiet_assets
   rack-force_domain
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
