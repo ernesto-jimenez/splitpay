@@ -7,10 +7,11 @@
   <p><label>
     Collect money for:<br>
     <%= form.text_field :title, placeholder: 'A gift for Darth Vader' %>
+    </label>
     <% unless @campaign.errors[:title].empty? %>
       <br><span class="error"><%= @campaign.errors[:title].map{|x| x.capitalize}.join('; ') %></span>
     <% end %>
-  </label></p>
+  </p>
 
   <p><label>
     Because:<br>
