@@ -44,12 +44,12 @@ section.payers
       float: left
   p.actions
     margin-top: 20px
-    
+
 form.campaign
   input.amount
     width: auto
     text-align: right
-    
+
 section.share
   margin-top: 1em
   border-top: 1px solid #ddd
@@ -57,9 +57,10 @@ section.share
     +std-input
     background: #fffb9c
     border: 2px dotted #dbaf58
+    border-radius: 5px
     font-size: 16pt
     color: #81683a
-    
+
 @mixin campaign-list
   +respond-to(desktop)
     float: left
@@ -91,10 +92,10 @@ section.closed-campaigns
     float: right
   +respond-to(phone)
     margin-top: 20px
-    
+
 section.campaigns-intro
   +campaign-list
-    
+
 section.campaigns-examples
   +campaign-list
   +respond-to(desktop)
