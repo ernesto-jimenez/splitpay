@@ -24,7 +24,7 @@
 <% else %>
 <div class="campaigns-list-wrapper">
   <section class="open-campaigns">
-    <h1><i class="icon-fire icon-dimmed"></i> On going</h1>
+    <h1><i class="icon-fire icon-dimmed"></i> Ongoing</h1>
 
     <% if @open_campaigns.any? %>
     <ul>
@@ -33,7 +33,7 @@
       <% end %>
     </ul>
     <% else %>
-    <p>You have no on going campaigns.</p>
+    <p>You have no ongoing campaigns.</p>
     <% end %>
     <p class="actions">
     <%= link_to new_campaign_path, class: 'button-ok single' do %><i class="icon-bullhorn"></i> Start a campaign</a><% end -%>

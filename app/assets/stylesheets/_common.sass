@@ -12,7 +12,8 @@ $std-font: Arial, Helvetica, sans-serif
 $std-font-size: 12pt
 $fancy-font: Muli
 
-$contrast-color: #F32A54
+$contrast-color: #f32a54
+$darkest-text-color: #2f2f2f
 $error-fg-color: #a03
 $error-bg-color: #fee
 
@@ -51,8 +52,8 @@ $error-bg-color: #fee
 
 @mixin std-button-ok
   +std-button
-  +background(linear-gradient(bottom, #58212b, #F32A54))
-  +text-shadow(1px 1px 2px rgba(0, 0, 0, 0.8))
+  +background(linear-gradient(bottom, #58212b, $contrast-color))
+  +text-shadow(-1px -1px 0px rgba(0, 0, 0, 0.3))
   +box-shadow(2px 2px 5px rgba(0, 0, 0, 0.5))
   color: #fff
 
