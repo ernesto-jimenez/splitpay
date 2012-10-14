@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  skip_before_filter :require_login
   def new
     campaign = Campaign.find_by_random_id(params[:campaign_id])
     payment = campaign.payments.build
