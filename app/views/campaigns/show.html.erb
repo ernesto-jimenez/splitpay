@@ -10,7 +10,7 @@
   <% end -%>
 
   <div class="organiser">
-    <p><%= gravatar_image_tag(@campaign.user_email, :alt => @campaign.user_name, :gravatar => { :size => 50, :default => 'mm' }) %> <span class="name"><%= @campaign.user_name %></span> (organiser)</p>
+    <p><%= gravatar_image_tag(@campaign.user_email, :alt => @campaign.user_name, :gravatar => { :size => 50, :default => 'mm' }) %> <span class="name"><%= @campaign.user_name %></span></p>
   </div>
 </section><!-- description -->
 
@@ -34,4 +34,9 @@
   <% else %>
   <p>No one yet :(</p>
   <% end %>
+  
+  <p class="actions">
+    <%= mail_to '', 'Tell people about this', :subject => @email_data[:subject], :body => @email_data[:body], :class => 'button-ok single' %>
+    
+  </p>
 </section><!-- payers -->

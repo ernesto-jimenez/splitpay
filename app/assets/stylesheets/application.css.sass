@@ -37,7 +37,8 @@ a
 a.button-ok
   +std-button-ok
   &.single
-    width: 99.5%
+    +respond-to(phone)
+      width: 99.5%
 strong
   color: #000
   font-weight: bold

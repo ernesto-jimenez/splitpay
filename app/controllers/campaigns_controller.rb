@@ -3,6 +3,16 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find_by_random_id(params[:id])
     @payments_completed = @campaign.paid
+    
+    @email_data = {:subject => "#{@campaign.title}",
+                   :body => <<-EOS
+#{@campaign.user.name} said:
+
+"#{@campaign.message}\"
+
+Please go to #{url_for(:action => 'show', :controller => 'campaigns', :only_path => false)} to pay.
+EOS
+                  }
   end
 
   def new
