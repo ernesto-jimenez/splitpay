@@ -45,7 +45,6 @@ class Currencies
   end
 
   def self.detail(currency)
-    Rails.logger.debug DETAIL[currency]
     DETAIL[currency]
   end
 end
