@@ -37,6 +37,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 group :development, :test do
+  # gem 'heroku'
   gem 'autotest-rails'
   gem 'autotest-growl'
   gem 'autotest-fsevent'
@@ -47,13 +48,15 @@ gem 'capistrano'
 gem 'lograge'
 
 group :production do
-  gem 'mysql2' # If using mysql in development, this can be outside the production group.
+  # gem 'mysql2' # If using mysql in development, this can be outside the production group.
+  gem 'pg'
+  gem 'activerecord-postgresql-adapter'
   gem 'therubyracer'
 
 end
 
 # To use debugger
 group :development do
-  gem 'debugger'
+  # gem 'debugger'
   gem 'quiet_assets'
 end
