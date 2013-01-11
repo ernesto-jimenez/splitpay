@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '~> 3.2.8'
 gem 'rack-force_domain'
 gem 'paypal_adaptive'
 
