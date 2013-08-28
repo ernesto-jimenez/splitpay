@@ -7,7 +7,7 @@ gem 'paypal_adaptive'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'omniauth-paypal', :git => 'https://github.com/surferdwa/omniauth-paypal.git'
+gem 'omniauth-paypal' #, :git => 'https://github.com/surferdwa/omniauth-paypal.git'
 gem 'gravatar_image_tag'
 
 gem 'turbolinks'
@@ -38,9 +38,10 @@ gem 'jquery-rails'
 
 group :development, :test do
   # gem 'heroku'
-  gem 'autotest-rails'
-  gem 'autotest-growl'
-  gem 'autotest-fsevent'
+  #gem 'autotest-rails'
+  #gem 'autotest-growl'
+  #gem 'autotest-fsevent'
+  gem 'mysql2'
 end
 
 # Deploy with Capistrano
@@ -48,11 +49,9 @@ gem 'capistrano'
 gem 'lograge'
 
 group :production do
-  # gem 'mysql2' # If using mysql in development, this can be outside the production group.
   gem 'pg'
   gem 'activerecord-postgresql-adapter'
   gem 'therubyracer'
-
 end
 
 # To use debugger
